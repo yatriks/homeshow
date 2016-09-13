@@ -3,16 +3,22 @@
   "authors": [
     "Yatrik Solanki <yatriksolanki@gmail.com>"
   ],
-  "description": "21st century, context recontexualized. Dwelling data data dopamine? main file ry your bedroom, your iPhone both water cooler machine coated with unique microbes hosted your body powered pulverized remains millenia flora fauna. With every like Instagram helping inch planet towards catastrophic global warming while your purchase history Amazon racks tally geological implications: deleting forests, rerouting Amazon river, voiding entire ecosystems. Meanwhile places where scroll designed according century patriarchal norms gender identity performative behavior what look what click.",
+  "description": "",
   "main": "",
   "license": "MIT",
   "homepage": "",
   "private": true,
+  "includeDev": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "flexboxgrid": "^6.3.2",
+    "jquery": "^3.1.0",
+    "Sprite3D.js": "sprite3d#^2.0.2"
+  }
 }
