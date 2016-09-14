@@ -3,7 +3,7 @@ body {
   padding: 0;
   overflow: hidden;
   min-height: 100vh;
-  font-family: Helvetica;
+  font-family: "HK Grotesk", sans;
 }
 
 header {
@@ -11,16 +11,15 @@ header {
   position: fixed;
   left: 0px;
   top: 0px;
-  font-family: monospace;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   z-index:-2;
   h1 {
     font-size: 48px;
-    margin-top: -1px;
+    margin-top: 4px;
     margin-left: -5px;
     line-height: 28px;
-    font-weight: 100;
+    font-weight: 800;
     // margin-left: -30px;
   }
 }
@@ -102,36 +101,52 @@ header {
       }
     }
   }
-// }
 
-// .face {
-//   width: 160px;
-//   height: 160px;
-//   margin: 0;
-//   border: 1px solid rgba(0,0,0,0.9);
-//   box-sizing: border-box;
-//   background: url('../img/cube_bg.png') no-repeat;
-//   background-size: contain;
-//   /*background: rgba(0,0,0,0.05);*/
-//   /*background: rgba(0,0,0,0.05);*/
-// }
-
-.shape > .top, .shape .bottom, .shape .left, .shape .right {
-	background: lighten(#000000, 10%);
-  z-index: -2;
-  // box-shadow: inset 0px 0px 0px 1px lighten(#000000, 40%);
-  // border: 1px solid black;
-	/*border-bottom: 10px solid black;
-	border-right: 20px solid black;
-	border-left: 5px solid black;
-	border-top: 30px solid black;*/
-	box-sizing: border-box;
+.shape {
+  & > .top, .bottom, .left, .right {
+    background: lighten(#000000, 10%);
+    z-index: -2;
+  	box-sizing: border-box;
+  }
+  & > .front, .back {
+    z-index: 4;
+  	background: white;
+  	border: 1px solid black;
+  	box-sizing: border-box;
+  }
+  &.gradient {
+    .top, .bottom, .left, .right {
+      background: linear-gradient(to top, #33FFB2, #FF00AD);
+      // border: 0;
+      // background:-webkit-linear-gradient(to bottom, #33FFB2, #FF00AD) 1 100%;
+      // background:-o-linear-gradient(to bottom, #33FFB2, #FF00AD) 1 100%;
+      // background:linear-gradient(to bottom, #33FFB2, #FF00AD) 1 100%;
+    }
+    .front, .back {
+      // border: 1px solid blue;
+      // background: blue;
+      border: 1px solid transparent;
+      border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%);
+      // border-image-slice: 1;
+      // border: 2px solid transparent;
+      // border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%);
+      border-image-slice: 1;
+      // box-sizing: border-box;
+    }
+  }
 }
-
-.shape > .front, .shape .back {
-  z-index: 4;
-	background: white;
-  // box-shadow: inset 0px 0px 0px 1px lighten(#000000, 40%);
-	border: 1px solid black;
-	box-sizing: border-box;
-}
+// .shape > .top, .shape .bottom, .shape .left, .shape .right {
+//
+//   &.gradient {
+//     background: red;
+//     border: 1px solid red;
+//   }
+// }
+//
+// .shape > .front, .shape .back {
+//
+//   &.gradient {
+//     background: red;
+//     border: 1px solid red;
+//   }
+// }

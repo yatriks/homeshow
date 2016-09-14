@@ -3,23 +3,22 @@ body {
   padding: 0;
   overflow: hidden;
   min-height: 100vh;
-  font-family: Helvetica; }
+  font-family: "HK Grotesk", sans; }
 
 header {
   width: 200px;
   position: fixed;
   left: 0px;
   top: 0px;
-  font-family: monospace;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   z-index: -2; }
   header h1 {
     font-size: 48px;
-    margin-top: -1px;
+    margin-top: 4px;
     margin-left: -5px;
     line-height: 28px;
-    font-weight: 100; }
+    font-weight: 800; }
 
 .typed-cursor {
   opacity: 1;
@@ -106,14 +105,18 @@ header {
 .shape > .top, .shape .bottom, .shape .left, .shape .right {
   background: #1a1a1a;
   z-index: -2;
-  /*border-bottom: 10px solid black;
-	border-right: 20px solid black;
-	border-left: 5px solid black;
-	border-top: 30px solid black;*/
   box-sizing: border-box; }
-
 .shape > .front, .shape .back {
   z-index: 4;
   background: white;
   border: 1px solid black;
   box-sizing: border-box; }
+.shape.gradient .top, .shape.gradient .bottom, .shape.gradient .left, .shape.gradient .right {
+  background: -webkit-linear-gradient(bottom, #33FFB2, #FF00AD);
+  background: linear-gradient(to top, #33FFB2, #FF00AD); }
+.shape.gradient .front, .shape.gradient .back {
+  border: 1px solid transparent;
+  -o-border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%);
+     border-image: -webkit-linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%);
+     border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%);
+  border-image-slice: 1; }

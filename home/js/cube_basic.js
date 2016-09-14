@@ -1,11 +1,14 @@
 var $ = jQuery;
-var unit = 25;
-var depth = 1;
 
 // var stage = Sprite3D.stage( document.getElementById("center") ).perspective('300000px');
 
-function shapeCreator(index, x, y, z) {
-
+function shapeCreator(index, x, y, z, unit, depth) {
+  if (!unit) {
+    unit = 27;
+  }
+  if (!depth) {
+    depth = 1;
+  }
   switch(index) {
     case 0:
       // Add shape1

@@ -66,11 +66,11 @@ function MouseScroll (event) {
   // rotateBox(shape6.children[0], 'x', scale(rolled));
   // rotateBox(shape6.children[2], 'x', scale(rolled));
 
-  if (Math.abs(rolled) < 15) {
+  if (Math.abs(rolled) < 1) {
 
     // Resets
 
-    $('.shape, .face').css('transition','transform 0.3s ease-in-out');
+    $('.shape, .face').css('transition','transform 0.04s ease');
 
     // Rotation Reset
     shape1.rotation(70,0,45).update();
@@ -167,6 +167,7 @@ $(document).ready( function() {
 
 
     Sprite3D.stage( $( element )[0] ).perspective(perspective).appendChild( shapeCreator(index, width/2, height/2, 0) );
+    $( this ).parents('.shape-container').siblings('.revelation')[0].appendChild( shapeCreator(index, viewport_width/2, viewport_height/2, 0, 80, 2).addClass('gradient') );
     $('.shape, .face').css('transition','0.02s all ease');
 
     // Randomize Order:
@@ -208,48 +209,47 @@ $(document).ready( function() {
 
       var shape = $(this).children('.shape');
 
-      var kids = $(this).children('.shape').children();
+      var kids = $(this).children('.shape').children().children();
+
+      var overlay = $( this ).parents('.shape-container').siblings('.revelation')[0];
 
       // Hide sibling shapes
-      $('.shape-container .col-sm-2 > .shape').not(shape).hide();
+      $('.shape-container .col-sm-2 > .shape').hide();
 
       // Move shape to center of page
       var offset = $(this).offset();
           centerX = offset.left + ($(this).width() / 2);
           centerY = offset.top + ($(this).height() / 2);
           positionTranslateX = Math.min(viewport_width/2, viewport_width/2 - centerX);
-          positionTranslateY = Math.min(viewport_height/2, viewport_height/2 - centerY);;
+          positionTranslateY = Math.min(viewport_height/2, viewport_height/2 - centerY);
 
-      shape[0].move(positionTranslateX, positionTranslateY, 0).update();
-
-      shape[0].scale(2.5).update();
+      // kids.each( function() {
+      //   // $(this).addClass('gradient');
+      // });
 
       // Provide reset data to mouseout function
-      $(this).data({
-        'positionReset': [positionTranslateX, positionTranslateY]
-      });
-      $(this).data('rotationReset', [shape[0].rotationX(), shape[0].rotationY(), shape[0].rotationZ()]);
+      $(overlay).data('rotationReset', [$(overlay).children('.shape')[0].rotationX(), $(overlay).children('.shape')[0].rotationY(), $(overlay).children('.shape')[0].rotationZ()]);
 
       rotate = setInterval(
         function() {
           var diff = Date.now() - now;
-          shape[0].rotate(0, 0.001*diff+10, 0.001*diff+10).update();
-          // rotateBox(shape[0].children[randomInt(0,2)], 'x', 0.02*diff);
-          // rotateBox(shape[0].children[randomInt(0,2)], 'x', 0.009*(Math.sin(diff)*2));
-          // rotateBox(shape[0].children[randomInt(0,2)], 'y', 0.001*(Math.cos(diff)));
+          overlay.children('.shape')[0].rotate(0, 0.001*diff+10, 0.001*diff+10).update();
+          rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'x', 0.02*diff);
+          rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'x', 0.009*(Math.sin(diff)*2));
+          rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'y', 0.001*(Math.cos(diff)));
         },
-        180);
+        200);
 
 
       // Display overlay
-      $( this ).parents('.shape-container').siblings().show();
+      var overlay = $( this ).parents('.shape-container').siblings('.revelation').fadeIn( 20 );
+      // overlay.append(shapeCreator(index, viewport_width/2, viewport_height/2, 0, 60));
+
 
       /*
         TYPE TYPE
         Gets typetype going on the overlay div.
         */
-
-      $( this ).parents('.shape-container').siblings().show();
 
       // $( this ).parents('.shape-container').siblings('.row.revelation').find('h1').typetype(
       //   "CHRISTINE BJERKE",
@@ -273,6 +273,8 @@ $(document).ready( function() {
 
       var shape = $(this).children('.shape');
 
+      var overlay = $( this ).parents('.shape-container').siblings('.revelation')[0];
+
       /*
         RESET HOVER EFFECTS
         */
@@ -280,18 +282,15 @@ $(document).ready( function() {
       // Reveal neighbors
       $('.shape-container .col-sm-2 > .shape').show();
 
-      // Return scale;
-      shape[0].scale(1).update();
+      // Hide revelation
+      $( this ).parents('.shape-container').siblings().fadeOut( 20 );
 
-      // shape[0].rotation(70,0,45).update();
+      var rotationResetX = $(overlay).data('rotationReset')[0];
+      var rotationResetY = $(overlay).data('rotationReset')[1];
+      var rotationResetZ = $(overlay).data('rotationReset')[2];
 
-      var positionReset = $(this).data('positionReset');
-      var rotationResetX = $(this).data('rotationReset')[0];
-      var rotationResetY = $(this).data('rotationReset')[1];
-      var rotationResetZ = $(this).data('rotationReset')[2];
-
-      shape[0].move(-positionReset[0],-positionReset[1],0).update();
-      shape[0].rotation(rotationResetX, rotationResetY, rotationResetZ).update();
+      // shape[0].move(-positionReset[0],-positionReset[1],0).update();
+      overlay.children('.shape')[0].rotation(rotationResetX, rotationResetY, rotationResetZ).update();
 
       // shape[0].children[0].rotation(0, 0, 0).update();
       // shape[0].children[1].rotation(0, 90, 0).update();
