@@ -6,6 +6,23 @@ body {
   font-family: "HK Grotesk", sans;
 }
 
+$gradient1: linear-gradient(-138deg, #007FFF 0%, #FF0000 100%);
+$gradient2: linear-gradient(50deg, #33FFB2 0%, #FF00AD 100%);
+$gradient3: linear-gradient(44deg, #00FF17 0%, #B3B42E 70%, #FF9437 100%);
+$gradient4: linear-gradient(-155deg, #606060 0%, #89B0C7 100%);
+$gradient5: linear-gradient(-119deg, #FF7C00 7%, #EEFF00 87%);
+$gradient6: linear-gradient(-247deg, #FF8A8A 0%, #9CF2FF 100%);
+
+$shadow1: linear-gradient(-138deg, #007FFF 0%, #FF0000 100%);
+$shadow2: linear-gradient(50deg, #33FFB2 0%, #FF00AD 100%);
+$shadow3: linear-gradient(44deg, #00FF17 0%, #B3B42E 70%, #FF9437 100%);
+$shadow4: linear-gradient(-155deg, #606060 0%, #89B0C7 100%);
+$shadow5: linear-gradient(-119deg, #FF7C00 7%, #EEFF00 87%);
+$shadow6: linear-gradient(-247deg, #FF8A8A 0%, #9CF2FF 100%);
+
+$gradients: $gradient1, $gradient2, $gradient3, $gradient4, $gradient5, $gradient6;
+
+
 header {
   width: 200px;
   position: fixed;
@@ -93,7 +110,10 @@ header {
       z-index: -1;
       display:none;
       h1 {
-        color: black;
+        font-size: 72px;
+        background: -webkit-linear-gradient(#eee, #333);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         width: 500px;
         font-size: 108px;
         margin: -20px 0 0 -20px;
@@ -114,25 +134,20 @@ header {
   	border: 1px solid black;
   	box-sizing: border-box;
   }
+  @for $i from 1 through 6 {
+    &.gradient-#{$i} > .shape {
+      & > .top, .bottom, .left, .right { border: 1px solid transparent; border-image: nth($gradients, $i); border-image-slice: 1; background: #fff; }
+      & > .front, .back { border: 1px solid transparent; border-image: nth($gradients, $i); border-image-slice: 1;background: #fff; }
+    }
+  }
   &.gradient {
-    .top, .bottom, .left, .right {
-      background: linear-gradient(to top, #33FFB2, #FF00AD);
-      // border: 0;
-      // background:-webkit-linear-gradient(to bottom, #33FFB2, #FF00AD) 1 100%;
-      // background:-o-linear-gradient(to bottom, #33FFB2, #FF00AD) 1 100%;
-      // background:linear-gradient(to bottom, #33FFB2, #FF00AD) 1 100%;
+    .top, .bottom, .left, .right { background-image: linear-gradient(to top, #33FFB2, #FF00AD); background: white; }
+    .front, .back { border: 3px solid transparent; border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%); border-image-slice: 2;
     }
-    .front, .back {
-      // border: 1px solid blue;
-      // background: blue;
-      border: 1px solid transparent;
-      border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%);
-      // border-image-slice: 1;
-      // border: 2px solid transparent;
-      // border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%);
-      border-image-slice: 1;
-      // box-sizing: border-box;
-    }
+  }
+  &.gradient_as_bg {
+     .front, .back { border: 1px solid transparent; border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%); border-image-slice: 1;background: #fff;  }
+     .top, .bottom, .left, .right { border: 1px solid transparent; border-image: linear-gradient(45deg, #33FFB2 0%, #FF00AD 100%); border-image-slice: 1; background: #fff;  }
   }
 }
 // .shape > .top, .shape .bottom, .shape .left, .shape .right {

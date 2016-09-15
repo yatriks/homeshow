@@ -1,0 +1,6 @@
+# Remove that which machines
+# already offer
+
+node_modules
+bower_components
+show

@@ -51,7 +51,7 @@ function MouseScroll (event) {
   var axes = ['x','y','z'];
 
   $('span > .row.shape-container .col-sm-2 > .shape').each(function() {
-    rotateBox(this, 'z', scale(rolled));
+    this.rotate(0,0,scale(rolled)).update();
   });
 
   // rotateBox(shape2.children[0], 'y', scale(rolled));
@@ -73,25 +73,25 @@ function MouseScroll (event) {
     $('.shape, .face').css('transition','transform 0.04s ease');
 
     // Rotation Reset
-    shape1.rotation(70,0,45).update();
-    shape2.rotation(70,0,45).update();
-    shape3.rotation(70,0,45).update();
-    shape4.rotation(70,0,45).update();
-    shape5.rotation(70,0,45).update();
-    shape6.rotation(70,0,45).update();
-
-    // Children Rotation Reset
-    shape2.children[0].rotation(0, 0, 0).update();
-    shape1.children[0].rotation(0, 0, 0).update();
-    shape1.children[3].rotation(90, 0, 0).update();
-    shape3.children[0].rotation(0, 0, 0).update();
-    shape3.children[1].rotation(0, -90, 0).update();
-    shape4.children[0].rotation(0, 180, 0).update();
-    shape4.children[2].rotation(90, 0, 0).update();
-    shape5.children[1].rotation(0, 90, 0).update();
-    shape5.children[2].rotation(90, 0, 0).update();
-    shape6.children[0].rotation(0, -90, 0).update();
-    shape6.children[2].rotation(-90, 0, 0).update();
+    // shape1.rotation(70,0,45).update();
+    // shape2.rotation(70,0,45).update();
+    // shape3.rotation(70,0,45).update();
+    // shape4.rotation(70,0,45).update();
+    // shape5.rotation(70,0,45).update();
+    // shape6.rotation(70,0,45).update();
+    //
+    // // Children Rotation Reset
+    // shape2.children[0].rotation(0, 0, 0).update();
+    // shape1.children[0].rotation(0, 0, 0).update();
+    // shape1.children[3].rotation(90, 0, 0).update();
+    // shape3.children[0].rotation(0, 0, 0).update();
+    // shape3.children[1].rotation(0, -90, 0).update();
+    // shape4.children[0].rotation(0, 180, 0).update();
+    // shape4.children[2].rotation(90, 0, 0).update();
+    // shape5.children[1].rotation(0, 90, 0).update();
+    // shape5.children[2].rotation(90, 0, 0).update();
+    // shape6.children[0].rotation(0, -90, 0).update();
+    // shape6.children[2].rotation(-90, 0, 0).update();
 
   }
 }
@@ -166,8 +166,8 @@ $(document).ready( function() {
         height = $(this).height();
 
 
-    Sprite3D.stage( $( element )[0] ).perspective(perspective).appendChild( shapeCreator(index, width/2, height/2, 0) );
-    $( this ).parents('.shape-container').siblings('.revelation')[0].appendChild( shapeCreator(index, viewport_width/2, viewport_height/2, 0, 80, 2).addClass('gradient') );
+    Sprite3D.stage( $( element )[0] ).perspective(perspective).appendChild( shapeCreatorSpread(index, width/2, height/2, 0) );
+    var revelation = Sprite3D.stage($( this ).parents('.shape-container').siblings('.revelation')[0]).perspective('600').appendChild( shapeCreatorSpread(index, viewport_width/2, viewport_height/4, 0, 100, 1).addClass('gradient-'+(index+1)) );
     $('.shape, .face').css('transition','0.02s all ease');
 
     // Randomize Order:
@@ -211,7 +211,9 @@ $(document).ready( function() {
 
       var kids = $(this).children('.shape').children().children();
 
-      var overlay = $( this ).parents('.shape-container').siblings('.revelation')[0];
+      var overlay = $( this ).parents('.shape-container').siblings('.revelation');
+
+      var axes=['x','y','z'];
 
       // Hide sibling shapes
       $('.shape-container .col-sm-2 > .shape').hide();
@@ -229,22 +231,46 @@ $(document).ready( function() {
 
       // Provide reset data to mouseout function
       $(overlay).data('rotationReset', [$(overlay).children('.shape')[0].rotationX(), $(overlay).children('.shape')[0].rotationY(), $(overlay).children('.shape')[0].rotationZ()]);
-
+      var revealed_shape = $(overlay).children('.shape')[0];
       rotate = setInterval(
         function() {
-          var diff = Date.now() - now;
-          overlay.children('.shape')[0].rotate(0, 0.001*diff+10, 0.001*diff+10).update();
-          rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'x', 0.02*diff);
-          rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'x', 0.009*(Math.sin(diff)*2));
-          rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'y', 0.001*(Math.cos(diff)));
+          var diff = (Date.now() - now);
+          var diffsecs = diff/1000;
+          overlay.children('.shape')[0].rotate(0, 0.0005*Math.sin(diff)^(0.5), 0.0005*Math.cos(diff)^(0.5)).update();
+          var perspectiveNormalize = function(rate) {
+            return Math.min(600+(15000*(diffsecs/rate)), 300000);
+          }
+          overlay[0].perspective(perspectiveNormalize(5));
+          // }
+          // rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'x', 0.02*diff);
+          // rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'z', 0.009*(Math.sin(diff)*2));
+          // rotateBox(overlay.children('.shape')[0].children[randomInt(0,2)], 'y', 0.001*(Math.cos(diff)));
+          // revealed_shape.children[randomInt(0,revealed_shape.children.length)].scale(0.25*Math.sin(diff)).update();
+          // revealed_shape.children[randomInt(0,revealed_shape.children.length)].scale(0.25*Math.cos(diff)).update();
+          // revealed_shape.children[randomInt(0,revealed_shape.children.length)].scale(0.25*Math.tan(diff)).update();
+          // $(overlay).children('.shape')[0].children
+
+          var rotators = function(axis) {
+            var t = diff/400;
+            return {
+              'x' : 0.02*t+0.1,
+              'y' : 0.009*(Math.sin(t)*2)+0.1,
+              'z' : 0.001*(Math.cos(t))+0.1
+            }[axis];
+          }
+          $(revealed_shape).children('.shape').each( function (index) {
+
+              this.rotate(rotators('x'), -1*rotators('y'), rotators('z')).update();
+
+              var randomAxis = axes[randomInt(0,2)];
+              Math.round(Math.random()) * this.rotate(rotators(randomAxis), rotators(randomAxis), rotators(randomAxis)).update();
+          })
         },
-        200);
+        10);
 
 
       // Display overlay
       var overlay = $( this ).parents('.shape-container').siblings('.revelation').fadeIn( 20 );
-      // overlay.append(shapeCreator(index, viewport_width/2, viewport_height/2, 0, 60));
-
 
       /*
         TYPE TYPE
@@ -290,7 +316,7 @@ $(document).ready( function() {
       var rotationResetZ = $(overlay).data('rotationReset')[2];
 
       // shape[0].move(-positionReset[0],-positionReset[1],0).update();
-      overlay.children('.shape')[0].rotation(rotationResetX, rotationResetY, rotationResetZ).update();
+      // $(overlay).children('.shape')[0].rotation(rotationResetX, rotationResetY, rotationResetZ).update();
 
       // shape[0].children[0].rotation(0, 0, 0).update();
       // shape[0].children[1].rotation(0, 90, 0).update();
