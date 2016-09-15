@@ -134,7 +134,7 @@ $(document).ready( function() {
   var offsets = shuffle([0,1,2,3,4,5,6,7,8,9]);
   var order = shuffle([0,1,2,3,4,5]);
   var exhibitor_ids = ['#angelidakis', '#foam', '#newterritories', '#chrstinebjerke', '#grnasfck', '#toma'];
-  var exhibitor_names = ['A n d r e a s   Angeli dakis', 'F O  A M', 'n e w- terri tories', 'C h r i s t i n e Bjerke', 'GRNA SFC K', 'TO MA'];
+  var exhibitor_names = ['A n d r e a s   Angeli dakis', 'F O  A M', 'n e w- terri tories', 'C h r istine Bjerke', 'GRNA SFC K', 'TO MA'];
 
   var viewport_height = $( window ).height();
       viewport_width = $( window ).width();

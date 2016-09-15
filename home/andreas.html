@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>AA</title>
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
+	<link rel="stylesheet" href="styles/style.min.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!-- bower:css -->
+	<!-- bower installed css files  will go here... -->
+	<!-- endinject -->
+	<!-- inject:css -->
+	<!-- built css files will go here... -->
+	<!-- endinject -->
+	<style>
+		.container {
+			width: 600px;
+			height: 200px;
+			position: relative;
+			margin: 0 auto 60px;
+			text-align: center;
+			-webkit-perspective: 1000px;
+			-moz-perspective: 1000px;
+			-o-perspective: 1000px;
+			perspective: 1000px;
+		}
+
+		#cube {
+			position: relative;
+			margin: 100px auto;
+			height: 400px;
+			width: 750px;
+			-webkit-transition: -webkit-transform 2s linear;
+			-webkit-transform-style: preserve-3d;
+			-moz-transition: -moz-transform 2s linear;
+			-moz-transform-style: preserve-3d;
+			transition: transform 2s linear;
+			transform-style: preserve-3d;
+			font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			text-align: justify;
+			font-size: 16px;
+		}
+	</style>
+</head>
+
+<body id="body" onload="Init ();">
+
+	<header class="page">
+		<h1><a href="/">HOMESHOW</a></h1>
+
+		<pre style="font-size: 12px; letter-spacing: 2px;"></pre>
+
+		<p>We have some <u>fun stuff</u> you should check out.</p>
+
+		<p>Or get in touch, we <u>love to talk</u> (clearly).</p>
+	</header>
+	<div class="aligner">
+		<!-- Based on the nice tutorial by desandro:
+          http://desandro.github.io/3dtransforms/docs/cube.html
+!-->
+		<section class="container">
+
+			<div id="cube">
+				<figure class="front">When I was a kid I used to have a recurring nightmare. The only thing I remember from this nightmare is that a group of fat people where chasing me in a dark deserted landscape. I kept running and looking back to see if they were any closer, and as
+					I looked I realized that they were not really fat but flat. They had no real 3rd dimension, even though they looked real when you saw them frontally. When you looked at them from the side, you could see that their volume was a graphic illusion, and
+					that they were just images of fat men on a 2D surface. Each time I had the nightmare, their flatness would surprise me, and I would keep running, terrified and fascinated by this visual effect. The same type of flatness exists in computer games.
+					In order to create a realistic 3D effect inside a computer generated world, a lot of the objects that make up this world are images texture-mapped onto plain volumes. For example, to re-create someone's face would require millions of polygons, and
+					these polygons would require huge amounts of memory in order to receive shadows and to render realistically. So to save on processing power, a photograph of the face is applied onto a very simplified 3-D version of that face. Instead of 1 million
+					polygons, it uses maybe 80. The rest of the information exists as a 2-D graphic. In the end, you see a photograph of the face mapped on a head-like volume, and the result is convincing enough to make killing this person realistic. Sometimes in these
+					3-D worlds you have the ability to pass through an object, and at that moment this combination of 2-D and 3-D takes a new meaning. When you cross the surface, you realize that the object is void, empty of any information and that the inside of this
+					object, whether it is a wall, a car or a person, is an inversion of its' outside. The object that you pass through is in fact more than hollow, because as you enter you find yourself outside of it, even though this is a new, limited outside. An easy
+					example would be a plain cube with an image of a house texture mapped onto it. When you are outside the house, you see maybe a brick wall, a window with curtains and flower pot and a door. When you enter this volume, you find yourself in a room with
+					the same brick wall, the same window-curtain-flower-pot and the same door, only now you are inside the outside. This type of reality exists only in computer games, but it could be interesting to consider architecture for this dimension. Sometimes
+					I think about the possibility of a two-dimensional building that is not an image of a building, but a building made out of surfaces that have no substance, no thickness, just image. The walls appear solid and opaque, but in fact they are thinner
+					than paper, thinner than anything that exists. The surfaces work great in frontal view or in perspective, but when you get real close they distort, and then you're on the other side, which is the same, just mirrored. Because the walls are so thin,
+					when you see them from the side they tend to disappear, and maybe others come into view as if from nowhere. So it's a building that you can never perceive as a complete structure, but only partially and depending to your orientation the part could
+					be different. Maybe even the building itself is animated but you cannot notice because the parts that you cannot see keep changing and as they change you keep moving and you notice others coming into view. This building is made up of 2-D parts set
+					up in a 3-D world, like a house made up from a deck of cards, and although it doesn't collapse, it also doesn't provide real permanence or true enclosure and it keeps you moving through it. I think there could be other types of buildings based on
+					this perception.</figure>
+				<figure class="back">When I was a kid I used to have a recurring nightmare. The only thing I remember from this nightmare is that a group of fat people where chasing me in a dark deserted landscape. I kept running and looking back to see if they were any closer, and as
+					I looked I realized that they were not really fat but flat. They had no real 3rd dimension, even though they looked real when you saw them frontally. When you looked at them from the side, you could see that their volume was a graphic illusion, and
+					that they were just images of fat men on a 2D surface. Each time I had the nightmare, their flatness would surprise me, and I would keep running, terrified and fascinated by this visual effect. The same type of flatness exists in computer games.
+					In order to create a realistic 3D effect inside a computer generated world, a lot of the objects that make up this world are images texture-mapped onto plain volumes. For example, to re-create someone's face would require millions of polygons, and
+					these polygons would require huge amounts of memory in order to receive shadows and to render realistically. So to save on processing power, a photograph of the face is applied onto a very simplified 3-D version of that face. Instead of 1 million
+					polygons, it uses maybe 80. The rest of the information exists as a 2-D graphic. In the end, you see a photograph of the face mapped on a head-like volume, and the result is convincing enough to make killing this person realistic. Sometimes in these
+					3-D worlds you have the ability to pass through an object, and at that moment this combination of 2-D and 3-D takes a new meaning. When you cross the surface, you realize that the object is void, empty of any information and that the inside of this
+					object, whether it is a wall, a car or a person, is an inversion of its' outside. The object that you pass through is in fact more than hollow, because as you enter you find yourself outside of it, even though this is a new, limited outside. An easy
+					example would be a plain cube with an image of a house texture mapped onto it. When you are outside the house, you see maybe a brick wall, a window with curtains and flower pot and a door. When you enter this volume, you find yourself in a room with
+					the same brick wall, the same window-curtain-flower-pot and the same door, only now you are inside the outside. This type of reality exists only in computer games, but it could be interesting to consider architecture for this dimension. Sometimes
+					I think about the possibility of a two-dimensional building that is not an image of a building, but a building made out of surfaces that have no substance, no thickness, just image. The walls appear solid and opaque, but in fact they are thinner
+					than paper, thinner than anything that exists. The surfaces work great in frontal view or in perspective, but when you get real close they distort, and then you're on the other side, which is the same, just mirrored. Because the walls are so thin,
+					when you see them from the side they tend to disappear, and maybe others come into view as if from nowhere. So it's a building that you can never perceive as a complete structure, but only partially and depending to your orientation the part could
+					be different. Maybe even the building itself is animated but you cannot notice because the parts that you cannot see keep changing and as they change you keep moving and you notice others coming into view. This building is made up of 2-D parts set
+					up in a 3-D world, like a house made up from a deck of cards, and although it doesn't collapse, it also doesn't provide real permanence or true enclosure and it keeps you moving through it. I think there could be other types of buildings based on
+					this perception.</figure>
+				<figure class="right">When I was a kid I used to have a recurring nightmare. The only thing I remember from this nightmare is that a group of fat people where chasing me in a dark deserted landscape. I kept running and looking back to see if they were any closer, and as
+					I looked I realized that they were not really fat but flat. They had no real 3rd dimension, even though they looked real when you saw them frontally. When you looked at them from the side, you could see that their volume was a graphic illusion, and
+					that they were just images of fat men on a 2D surface. Each time I had the nightmare, their flatness would surprise me, and I would keep running, terrified and fascinated by this visual effect. The same type of flatness exists in computer games.
+					In order to create a realistic 3D effect inside a computer generated world, a lot of the objects that make up this world are images texture-mapped onto plain volumes. For example, to re-create someone's face would require millions of polygons, and
+					these polygons would require huge amounts of memory in order to receive shadows and to render realistically. So to save on processing power, a photograph of the face is applied onto a very simplified 3-D version of that face. Instead of 1 million
+					polygons, it uses maybe 80. The rest of the information exists as a 2-D graphic. In the end, you see a photograph of the face mapped on a head-like volume, and the result is convincing enough to make killing this person realistic. Sometimes in these
+					3-D worlds you have the ability to pass through an object, and at that moment this combination of 2-D and 3-D takes a new meaning. When you cross the surface, you realize that the object is void, empty of any information and that the inside of this
+					object, whether it is a wall, a car or a person, is an inversion of its' outside. The object that you pass through is in fact more than hollow, because as you enter you find yourself outside of it, even though this is a new, limited outside. An easy
+					example would be a plain cube with an image of a house texture mapped onto it. When you are outside the house, you see maybe a brick wall, a window with curtains and flower pot and a door. When you enter this volume, you find yourself in a room with
+					the same brick wall, the same window-curtain-flower-pot and the same door, only now you are inside the outside. This type of reality exists only in computer games, but it could be interesting to consider architecture for this dimension. Sometimes
+					I think about the possibility of a two-dimensional building that is not an image of a building, but a building made out of surfaces that have no substance, no thickness, just image. The walls appear solid and opaque, but in fact they are thinner
+					than paper, thinner than anything that exists. The surfaces work great in frontal view or in perspective, but when you get real close they distort, and then you're on the other side, which is the same, just mirrored. Because the walls are so thin,
+					when you see them from the side they tend to disappear, and maybe others come into view as if from nowhere. So it's a building that you can never perceive as a complete structure, but only partially and depending to your orientation the part could
+					be different. Maybe even the building itself is animated but you cannot notice because the parts that you cannot see keep changing and as they change you keep moving and you notice others coming into view. This building is made up of 2-D parts set
+					up in a 3-D world, like a house made up from a deck of cards, and although it doesn't collapse, it also doesn't provide real permanence or true enclosure and it keeps you moving through it. I think there could be other types of buildings based on
+					this perception.</figure>
+				<figure class="left">When I was a kid I used to have a recurring nightmare. The only thing I remember from this nightmare is that a group of fat people where chasing me in a dark deserted landscape. I kept running and looking back to see if they were any closer, and as
+					I looked I realized that they were not really fat but flat. They had no real 3rd dimension, even though they looked real when you saw them frontally. When you looked at them from the side, you could see that their volume was a graphic illusion, and
+					that they were just images of fat men on a 2D surface. Each time I had the nightmare, their flatness would surprise me, and I would keep running, terrified and fascinated by this visual effect. The same type of flatness exists in computer games.
+					In order to create a realistic 3D effect inside a computer generated world, a lot of the objects that make up this world are images texture-mapped onto plain volumes. For example, to re-create someone's face would require millions of polygons, and
+					these polygons would require huge amounts of memory in order to receive shadows and to render realistically. So to save on processing power, a photograph of the face is applied onto a very simplified 3-D version of that face. Instead of 1 million
+					polygons, it uses maybe 80. The rest of the information exists as a 2-D graphic. In the end, you see a photograph of the face mapped on a head-like volume, and the result is convincing enough to make killing this person realistic. Sometimes in these
+					3-D worlds you have the ability to pass through an object, and at that moment this combination of 2-D and 3-D takes a new meaning. When you cross the surface, you realize that the object is void, empty of any information and that the inside of this
+					object, whether it is a wall, a car or a person, is an inversion of its' outside. The object that you pass through is in fact more than hollow, because as you enter you find yourself outside of it, even though this is a new, limited outside. An easy
+					example would be a plain cube with an image of a house texture mapped onto it. When you are outside the house, you see maybe a brick wall, a window with curtains and flower pot and a door. When you enter this volume, you find yourself in a room with
+					the same brick wall, the same window-curtain-flower-pot and the same door, only now you are inside the outside. This type of reality exists only in computer games, but it could be interesting to consider architecture for this dimension. Sometimes
+					I think about the possibility of a two-dimensional building that is not an image of a building, but a building made out of surfaces that have no substance, no thickness, just image. The walls appear solid and opaque, but in fact they are thinner
+					than paper, thinner than anything that exists. The surfaces work great in frontal view or in perspective, but when you get real close they distort, and then you're on the other side, which is the same, just mirrored. Because the walls are so thin,
+					when you see them from the side they tend to disappear, and maybe others come into view as if from nowhere. So it's a building that you can never perceive as a complete structure, but only partially and depending to your orientation the part could
+					be different. Maybe even the building itself is animated but you cannot notice because the parts that you cannot see keep changing and as they change you keep moving and you notice others coming into view. This building is made up of 2-D parts set
+					up in a 3-D world, like a house made up from a deck of cards, and although it doesn't collapse, it also doesn't provide real permanence or true enclosure and it keeps you moving through it. I think there could be other types of buildings based on
+					this perception.</figure>
+				<figure class="top">When I was a kid I used to have a recurring nightmare. The only thing I remember from this nightmare is that a group of fat people where chasing me in a dark deserted landscape. I kept running and looking back to see if they were any closer, and as
+					I looked I realized that they were not really fat but flat. They had no real 3rd dimension, even though they looked real when you saw them frontally. When you looked at them from the side, you could see that their volume was a graphic illusion, and
+					that they were just images of fat men on a 2D surface. Each time I had the nightmare, their flatness would surprise me, and I would keep running, terrified and fascinated by this visual effect. The same type of flatness exists in computer games.
+					In order to create a realistic 3D effect inside a computer generated world, a lot of the objects that make up this world are images texture-mapped onto plain volumes. For example, to re-create someone's face would require millions of polygons, and
+					these polygons would require huge amounts of memory in order to receive shadows and to render realistically. So to save on processing power, a photograph of the face is applied onto a very simplified 3-D version of that face. Instead of 1 million
+					polygons, it uses maybe 80. The rest of the information exists as a 2-D graphic. In the end, you see a photograph of the face mapped on a head-like volume, and the result is convincing enough to make killing this person realistic. Sometimes in these
+					3-D worlds you have the ability to pass through an object, and at that moment this combination of 2-D and 3-D takes a new meaning. When you cross the surface, you realize that the object is void, empty of any information and that the inside of this
+					object, whether it is a wall, a car or a person, is an inversion of its' outside. The object that you pass through is in fact more than hollow, because as you enter you find yourself outside of it, even though this is a new, limited outside. An easy
+					example would be a plain cube with an image of a house texture mapped onto it. When you are outside the house, you see maybe a brick wall, a window with curtains and flower pot and a door. When you enter this volume, you find yourself in a room with
+					the same brick wall, the same window-curtain-flower-pot and the same door, only now you are inside the outside. This type of reality exists only in computer games, but it could be interesting to consider architecture for this dimension. Sometimes
+					I think about the possibility of a two-dimensional building that is not an image of a building, but a building made out of surfaces that have no substance, no thickness, just image. The walls appear solid and opaque, but in fact they are thinner
+					than paper, thinner than anything that exists. The surfaces work great in frontal view or in perspective, but when you get real close they distort, and then you're on the other side, which is the same, just mirrored. Because the walls are so thin,
+					when you see them from the side they tend to disappear, and maybe others come into view as if from nowhere. So it's a building that you can never perceive as a complete structure, but only partially and depending to your orientation the part could
+					be different. Maybe even the building itself is animated but you cannot notice because the parts that you cannot see keep changing and as they change you keep moving and you notice others coming into view. This building is made up of 2-D parts set
+					up in a 3-D world, like a house made up from a deck of cards, and although it doesn't collapse, it also doesn't provide real permanence or true enclosure and it keeps you moving through it. I think there could be other types of buildings based on
+					this perception.</figure>
+				<figure class="bottom">When I was a kid I used to have a recurring nightmare. The only thing I remember from this nightmare is that a group of fat people where chasing me in a dark deserted landscape. I kept running and looking back to see if they were any closer, and as
+					I looked I realized that they were not really fat but flat. They had no real 3rd dimension, even though they looked real when you saw them frontally. When you looked at them from the side, you could see that their volume was a graphic illusion, and
+					that they were just images of fat men on a 2D surface. Each time I had the nightmare, their flatness would surprise me, and I would keep running, terrified and fascinated by this visual effect. The same type of flatness exists in computer games.
+					In order to create a realistic 3D effect inside a computer generated world, a lot of the objects that make up this world are images texture-mapped onto plain volumes. For example, to re-create someone's face would require millions of polygons, and
+					these polygons would require huge amounts of memory in order to receive shadows and to render realistically. So to save on processing power, a photograph of the face is applied onto a very simplified 3-D version of that face. Instead of 1 million
+					polygons, it uses maybe 80. The rest of the information exists as a 2-D graphic. In the end, you see a photograph of the face mapped on a head-like volume, and the result is convincing enough to make killing this person realistic. Sometimes in these
+					3-D worlds you have the ability to pass through an object, and at that moment this combination of 2-D and 3-D takes a new meaning. When you cross the surface, you realize that the object is void, empty of any information and that the inside of this
+					object, whether it is a wall, a car or a person, is an inversion of its' outside. The object that you pass through is in fact more than hollow, because as you enter you find yourself outside of it, even though this is a new, limited outside. An easy
+					example would be a plain cube with an image of a house texture mapped onto it. When you are outside the house, you see maybe a brick wall, a window with curtains and flower pot and a door. When you enter this volume, you find yourself in a room with
+					the same brick wall, the same window-curtain-flower-pot and the same door, only now you are inside the outside. This type of reality exists only in computer games, but it could be interesting to consider architecture for this dimension. Sometimes
+					I think about the possibility of a two-dimensional building that is not an image of a building, but a building made out of surfaces that have no substance, no thickness, just image. The walls appear solid and opaque, but in fact they are thinner
+					than paper, thinner than anything that exists. The surfaces work great in frontal view or in perspective, but when you get real close they distort, and then you're on the other side, which is the same, just mirrored. Because the walls are so thin,
+					when you see them from the side they tend to disappear, and maybe others come into view as if from nowhere. So it's a building that you can never perceive as a complete structure, but only partially and depending to your orientation the part could
+					be different. Maybe even the building itself is animated but you cannot notice because the parts that you cannot see keep changing and as they change you keep moving and you notice others coming into view. This building is made up of 2-D parts set
+					up in a 3-D world, like a house made up from a deck of cards, and although it doesn't collapse, it also doesn't provide real permanence or true enclosure and it keeps you moving through it. I think there could be other types of buildings based on
+					this perception.</figure>
+			</div>
+		</section>
+	</div>
+	<!-- </div> -->
+
+	<footer>
+		<img src="http://www.adjustments.agency/aa_logo.gif" />
+	</footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+document.onmousemove = function (e) {
+    var x = e.clientX - innerWidth/2,
+        y = e.clientY - innerHeight/2,
+        yawn = x / innerWidth * 180,
+        pitch = y / innerHeight * 180;
+
+    document.querySelector('#cube .front').style.transform = 'rotateX( '+ (0+pitch) +'deg ) rotateY( '+ (0+yawn) +'deg ) translateZ( 100px )';
+    document.querySelector('#cube .back').style.transform = 'rotateX( '+ (180+pitch) +'deg ) rotateY( '+ (0-yawn) +'deg ) translateZ( 100px )';
+    document.querySelector('#cube .right').style.transform = 'rotateX( '+ (0+pitch) +'deg ) rotateY( '+ (90+yawn) +'deg ) translateZ( 100px )';
+    document.querySelector('#cube .left').style.transform = 'rotateX( '+ (0+pitch) +'deg ) rotateY( '+ (-90+yawn) +'deg ) translateZ( 100px )';
+    document.querySelector('#cube .top').style.transform = 'rotateX( '+ (90+pitch) +'deg ) rotateZ( '+ (0-yawn) +'deg ) translateZ( 100px )';
+    document.querySelector('#cube .bottom').style.transform = 'rotateX( '+ (-90+pitch) +'deg ) rotateZ( '+ (0+yawn) +'deg ) translateZ( 100px )';
+
+};
+</script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+
+<script src="https://cdn.rawgit.com/boblemarin/Sprite3D.js/master/Sprite3D.js"></script>
+
+<!-- Add typetype.js manually -->
+<script src="http://iamdanfox.github.io/typetype/jquery.typetype.min.js"></script>
+
+<script>
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+	var colors =['#007FFF','#FF0000','#33FFB2','#FF00AD','#00FF17','#B3B42E','#FF9437','#606060','#89B0C7','#FF7C00','#EEFF00','#FF8A8A','#9CF2FF'];
+
+  $('pre').html('<span style="color:'+colors[Math.floor((Math.random() * colors.length))]+'">('+userip + ')</span>$ >BETA<span class="typed-cursor">|</span>');
+</script>
+<!-- <script src="js/hover.js"></script> -->
+
+<!-- bower:js -->
+<!-- bower installed scripts will go here... -->
+<!-- endinject -->
+<!-- inject:js -->
+<!-- app scripts will go here... -->
+<!-- endinject -->
+
+</html>

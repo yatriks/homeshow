@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>AA</title>
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
+	<link rel="stylesheet" href="styles/style.min.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!-- bower:css -->
+	<!-- bower installed css files  will go here... -->
+	<!-- endinject -->
+	<!-- inject:css -->
+	<!-- built css files will go here... -->
+	<!-- endinject -->
+	<style>
+		#text {
+			color: #FFFFFF;
+			transition: all 0.3s ease-in;
+			text-decoration: none;
+			z-index: 9999;
+			margin-left: 400px;
+			width: 50%;
+			padding: 10px;
+			z-index: 9999;
+			font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color: #000000;
+			font-weight: 500;
+		}
+
+		#text:hover {
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+		}
+
+		span.highlight {
+			background-color: none;
+			color: #FFFFFF;
+			line-height: 26px;
+		}
+
+		span.highlight:hover {
+			background-color: rgba(255, 255, 255, 0.80);
+			color: #000000;
+		}
+
+		h1 {
+			text-shadow: none;
+		}
+
+		h1:hover {
+			text-shadow: 0 0 20px #02FF00;
+			;
+		}
+	</style>
+
+	<style type="text/css">
+				body,
+		td,
+		th {
+			font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color: #000000;
+			font-weight: 500;
+			cursor: url(http://adjustments.agency/GRNASFCK/grnasfck/cursor.png), auto;
+		}
+
+		#video_background {
+			position: fixed;
+			bottom: 0px;
+			right: 0px;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -1000;
+		}
+
+		.secs {
+			position: relative;
+			height: 100%;
+		}
+
+		.secs .inside {
+			width: 1200px;
+			margin: 0 auto;
+			height: 100%;
+		}
+
+		.secs.first {
+			text-align: center;
+		}
+
+		.secs.first h1 {
+			font-size: 60px;
+			font-weight: bold;
+			color: white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			text-shadow: 1px 1px 1px #999, 2px 2px 1px #999, 3px 3px 1px #999, 4px 4px 1px #999;
+			transform: translate(-50%, -155%);
+			z-index: 10;
+		}
+
+		.secs.first .inside {
+			display: flex;
+			justify-content: center;
+			padding-top: 100px;
+			position: relative;
+		}
+
+		.secs {
+			position: relative;
+			height: 100%;
+			.inside {
+				width: 1200px;
+				margin: 0 auto;
+				height: 100%;
+			}
+			&.first {
+				text-align: center;
+				h1 {
+					font-size: 60px;
+					font-weight: bold;
+					color: white;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					text-shadow: 1px 1px 1px #999, 2px 2px 1px #999, 3px 3px 1px #999, 4px 4px 1px #999;
+					transform: translate(-50%, -155%);
+					z-index: 10;
+				}
+				.inside {
+					display: flex;
+					justify-content: center;
+					padding-top: 0px;
+					position: relative;
+				}
+	</style>
+	<style>
+		@-webkit-keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.protest {
+			pointer-events: none;
+			margin: 0 auto;
+			opacity: 0;
+			text-align: center;
+			-webkit-animation: fadeInOut 5s;
+			animation: fadeInOut 5s;
+			animation-delay: 10s;
+			animation-duration: 15s !important;
+			position: fixed;
+			z-index: 500;
+			padding: 0;
+		}
+
+		@-webkit-keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.cards {
+			pointer-events: none;
+			margin: 0 auto;
+			opacity: 0;
+			text-align: center;
+			-webkit-animation: fadeInOut 5s;
+			animation: fadeInOut 5s;
+			animation-delay: 40s;
+			animation-duration: 15s !important;
+			position: fixed;
+			z-index: 500;
+			padding: 0;
+		}
+
+		@-webkit-keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.book {
+			pointer-events: none;
+			margin: 0 auto;
+			opacity: 0;
+			text-align: center;
+			-webkit-animation: fadeInOut 5s;
+			animation: fadeInOut 5s;
+			animation-delay: 60s;
+			animation-duration: 15s !important;
+			position: fixed;
+			z-index: 500;
+			padding: 0;
+		}
+
+		@-webkit-keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.braid1 {
+			pointer-events: none;
+			margin: 0 auto;
+			opacity: 0;
+			text-align: center;
+			-webkit-animation: fadeInOut 5s;
+			animation: fadeInOut 5s;
+			animation-delay: 100s;
+			animation-duration: 15s !important;
+			position: fixed;
+			z-index: 500;
+			padding: 0;
+		}
+
+		@-webkit-keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeInOut {
+			0% {
+				opacity: 0;
+			}
+			16% {
+				opacity: 1;
+			}
+			84% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.instagram {
+			pointer-events: none;
+			margin: 0 auto;
+			opacity: 0;
+			text-align: center;
+			-webkit-animation: fadeInOut 5s;
+			animation: fadeInOut 5s;
+			animation-delay: 120s;
+			animation-duration: 15s !important;
+			position: fixed;
+			z-index: 500;
+			padding: 0;
+		}
+	</style>
+</head>
+
+<body id="body" onload="Init ();">
+
+	<header class="page">
+		<h1><a href="/">HOMESHOW</a></h1>
+
+		<pre style="font-size: 12px; letter-spacing: 2px;"></pre>
+
+		<p>We have some <u>fun stuff</u> you should check out.</p>
+
+		<p>Or get in touch, we <u>love to talk</u> (clearly).</p>
+	</header>
+
+		<div class="header" style="position:fixed; left:30px; z-index:99999; font-size:24px; color:#FFFFFF;">
+			<h1>GRNASFCK</h1></div>
+		<div class="a">
+			<div id="text" style="width:600px; z-index:99999; ">
+				<font style="font-size:20px;"><span class="highlight">
+<br><br><br><br><br><i>I love the name of your studio – an expletive that, paradoxically, can only really be read. Can you tell me about the name and its/your relation to "green architecture" or "green-washing," more generally?</i> <br><br>
+
+Ian proposed "Green As Fuck" for the title of our graduate thesis show at the school’s gallery; we had just spent three years being inundated with "green-ness" and we were sick of it. "Green" is a slippery word – it conjures a narrative of ecological morality as an anecdote to the industrial era - a narrative we find false. There is no post-industrial; corporate waste will provide landscape architects with materials to work with for the rest of time. "Green As Fuck" was an attempt to subvert that tidy narrative, cleaning the slate of expectations and applying our tools of biological and architectural synthesis in provocative ways. We believe that is critical when engaging with the complicated and paradoxical techno-derivational landscapes that are redirecting open space today. The name was not approved for our show, but that inspired a sort of afterlife for the term that became our studio.<br><br>
+
+<i>In general, your writing uses a lot of 'profanity.' I've a theory – and tell me if I'm completely off-base – that something more is going on behind this than ‘mere’ style. Paralleling the vowel-less expletive in your name, the use of profanity in your writing seems to speak to the emotional valences of the human subject in relation to the massive contexts that you two study. This is to say, there's a certain sense of anger/rage/horror voiced and then simultaneously rendered impotent or insignificant by the intrusion of an awareness of deep or geologic time scales. Can you speak to this a bit?</i><br><br>
+
+There's a mode of looking at the world right now, especially the natural world, the landscape, and saying, “We're pretty fucked.” Climate-petrochemical-induced extinction: the 20th century capitalist expansion of anglo industrial complex has connected parts of the world in unprecedented ways in it’s never ending demand for resources. As landscape architects and as human beings, we empathize with this reality and it is horrifying. But from a geologic perspective, industrial trauma to the environment is nothing more than a blip in a vast history that has nothing to do with people. <br><br>
+
+What is more horrifying: that capital accumulation and corporate interests are poisoning the collective groundwater, or the awareness that our human struggles, pushing piles of dirt around, are ultimately meaningless on an indifferent, shapeshifting planet? In the words of John McPhee: <br><br>
+
+"Consider the Earth's history as the old measure of the English yard, the distance from the King's nose to the tip of his outstretched hand. One stroke of a nail file on his middle finger erases human history. (Basin and Range, 1981)"<br><br>
+
+The best we can do – what GRNASFCK wants to do – is understand these "earth-eating" operations (right now, for instance, we're really interested in hydrofracking): how they work, how they’re experienced on the ground, what their byproducts are, and how we can engage with these processes. The answers aren't clear, but we attempt to go beyond either saying "we're f-ed" or putting a greenroof on a oil refinery and calling it a day.<br><br>
+
+Also, swearing is fun; it's very human and relatable. Camping is mostly drinking beer, telling stories, and swearing. Maybe swearing is the most human intervention into nature. <br><br>
+
+
+<i>You've written a series of "field transmissions" – as you title the first one – for Manifest. These are striking texts that move wildly from candid, profanity-laced travelogues to unsettling explorations of deep, geologic time. Before getting into them in detail, I'd like to hear about the basic approach/strategy behind them.</i><br><br>
+
+After graduating from RISD, we did a travelling studio with the Architectural Association Unknown Fields Division to Ukraine and Kazakhstan. The instructors, Liam Young and Kate Davies, were very enthusiastic and got us into some unbelievably bizarre and distant places – including the Chernobyl Exclusion Zone, a true GRNASFCK landscape. Chernobyl is generally thought of as "most fucked place" – and for good reason – but it's also a really beautiful forest. After the meltdown, the trees captured the bulk of the radiation, and to protect the forest from burning down it was flooded and restored to its native condition as a wetland. Now the zone has some of the highest biodiversity in Europe and is a major hub for migratory birds.<br><br>
+Anyways, experiencing that trip and the way it was conceptualized beforehand, which then played out and dictated the travel plans, was exciting to us. So the next year when an occasion (it happened to be Ian's birthday) rolled around, we decided to frame what would have been just another camping trip in Texas into something more exploratory – and we found an audience in the process. We lucked out working with MANIFEST because, although the editors are in academia, they encouraged us to spin this slightly insane narrative. We want to be in conversation with the academic world, but as a counterpoint. <br><br>
+
+Ideally, our writing acculturates geology.<br><br>
+
+<i>In your writing, the "I" seems to be a temporary position, occupied indeterminately by you (Ian) or you (Colleen) and perhaps others. Can you talk about this?</i><br><br>
+
+The geologic scale can seem so unfathomable, but we experience it every day. To paraphrase Timothy Morton, when we touch our iPhones, we're touching a platinum mine in Uganda; when we refill our gas tanks, we are touching the ocean floor in the Gulf of Mexico.
+
+We travel to places of material action, geologically leaky locations, where the evidence of disturbance, but also creation, is evident. The organisms that colonize our landscape contextualizes humanity in unexpected ways. While we see our narratives as a version of a field report, it seems important to acknowledge ourselves as emotional, human agents. In this way we are equally inspired by Hunter S. Thompson, John McPhee, and Chris Kraus. The "existing conditions" of the site include not just a survey the flora and fauna, but also being lost, being hungover, being scared, being awestruck.
+
+<i>"Field Transmissions from West Texas" documents your trip into some pretty surreal landscapes. Likewise, in the soon-to-be-published "Sunshine Eschatology," you're tripping around Florida, camping amidst wild pigs in saw palmetto savannahs, talking to an angsty teen in Celebration, Florida, and finally traversing to a mega-church-cum-nightclub in Miami. I'd love to hear the background behind these essays: how you picked your destinations, the relation between truth/fiction, and how the writing process occurs – collaboratively or otherwise.
+
+More generally, I'm fascinated by the unique manner in which GRNASFCK decodes these complex landscapes. What’s the broader imperative behind your work and the manner in which it is conducted?</i><br><br>
+
+We explore greenness beyond a surface treatment. We want to see how geologic and cultural forces touch down and express themselves through plants and animals. <br><br>
+
+We go to places that are unexplored by our field, and where landscape and culture have an isolated expression. We have solid research periods before we select locations to travel – sending each other Google Earth screenshots and news and journal articles, etc. We're looking for a diversity of geographies and cultures, but we always have inclinations of where we want to go. Then once we dig in to a place, there is a whole world from the bedrock up.<br><br>
+
+In terms of our writing process, we'll hash a rough structure together and then pass a draft back and forth. We try to plan our trips around building a narrative, rather than the narrative being an afterthought. Furthermore we make certain pains to connect with friends of friends (of friends) when we travel, to be enveloped in a genuine, and consequently unpredictable culture. And while the authentic experience of a place generates a narrative that cannot be invented, we're less concerned with "reporting facts" than what the mise-en-scene of a place can tell us. We want to take a core sample but we'll do some dowsing too.<br><br>
+
+<i>So last fall we met under the auspices of your exhibition at the StoreFrontLab in San Francisco. "I Love Extremophiles!" included a rally for elements of "invisible urbanism" and a panel. Can you talk about the terms that were at play, in particular "invisible urbanism"? And about the exhibit and panel, in general: how you chose the speakers, the discussions that were intended and those that came about in actuality?</i><br><br>
+
+Post-industrial and brownfield sites are somewhat fetishized in landscape architecture; there's this brown-to-green narrative where we roll a park over the material excess of the late 20th century (capped with thousands of yards of concrete) and congratulate ourselves for restoring "natural order”.<br><br>
+
+We're more interested in understanding what these sites have to offer as human manipulated landscapes. On a micro-scale they are host to new forms of ecology – heavy metal eating bacteria and plants which are evolving in response to these new habitats. As our cities and bodies become increasingly fused with biology and technology, it makes sense to look to these coping strategies of ancient life, namely, extremophile bacteria. Extremophiles, because of their ability to metabolize materials such as petroleum and natural gas, are currently being domesticated for resource extraction (and subsequent cleanup) by the mining and gas industries. But within the urban environment, they remain feral and unstudied.<br><br>
+
+San Francisco is a great place to explore these ideas, given its arc from shipping and military base to tech u/dystopia. The curators at StoreFrontLab, Arianne Gelardin and Jacob Palmer, were incredibly supportive, and also interested in exploring the fringes of architecture.<br><br>
+
+The Summit on Invisible Urbanism was part of our larger installation, I Love Extremophiles! and was a somewhat informal conversation on the many scales of engagement with contaminated urban landscapes. It's important to us to sample from a diverse pool. It's safe to say that every event we host will include architects, landscape architects, scientists, planners, technologists, and artists. But honestly, we were so damn nervous we don't really remember what everyone talked about, however, Bay Area landscape architect David Fletcher dropped a great line about "collaborating with catastrophe,” so yeah that was the main take away.<br><br>
+
+
+<i>Do you have any thoughts regarding the current state of architecture and landscape architecture, more generally? Where do you stand on the relationship between what we could call architectural thinking and architecture-as-building, with the understanding that the building sector has what could be called a majority stake in climate change?</i><br><br>
+
+We see speculative and built work as fraternal twins - different expressions of a shared genetic code, and of equal importance. Internally, the field is expanding into many exciting directions reflecting an optimism of what can be brought together through provocative design thinking. However, there seems to be a hesitancy to insert these radical ideas into practice, which in turn creates a lag in public perception of the capabilities of the field, directing what kind of projects are brought in front of landscape architects. At the same time, to be honest, its industry (agriculture, hydrofracking, mountaintop removal, oil refining) and not so much design that is currently the major driver of landscape morphology. How we reconcile the human scale with the industrial is a huge challenge. Our approach is to look closely at industry, and try to understand how its effects ripple down to the ground, biologically and culturally.<br><br>
+
+Regarding climate change, ultimately the ecological question becomes less how to build around it, and more about how to contain it. Industrial human activity essentially acts as volcanos, extracting stored energy from the earth and circulating it into the atmosphere. So when people talk about “another extinction event”, that’s true. The question becomes how to contain it, how to scrub it. We think you start with plants. Actually, we think you start with bacteria, which we’ll call digital plants. This will have to be, by necessity, an industrial scale operation.<br><br>
+
+In the meantime, where landscape architecture can come into play is creating more equitable human conditions on the ground. The burden of climate change falls on underprivileged populations. We’re starting to see climate refugees in the arctic, which will only expand with time. Architecture can potentially intervene by both bio-fortifying existing cities and communities, and working to create a welcoming and resilient infrastructure in urban centers. <br><br>
+
+Climate change is forcing us to reimagine how we live on our planet; this is huge opportunity for landscape architecture to respond in kind. We have a unique attribute to our field that is all but absent in every other design discipline save biological engineering: we use living materials as our medium.<br><br></span>
+
+
+				</font>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="overlay">
+
+				<div class="slide secs first"></div>
+
+				<div class="inside">
+				</div>
+				<div class="slide">
+				</div>
+				<div class="slide"></div>
+				<div class="slide"></div>
+				<div class="slide"></div>
+				<div class="slide"></div>
+			</div>
+		</div>
+
+	<!-- </div> -->
+
+	<footer>
+		<img src="http://www.adjustments.agency/aa_logo.gif" />
+	</footer>
+
+	<video id="video_background" preload="auto" autoplay loop>
+	<source src="http://adjustments.agency/GRNASFCK/GRNASFCK%20b%20r%20a%20i%20d_t%20h%20e%20o%20r%20y-HD.mp4" type="video/mp4">
+	</video>
+
+	<div class="protest" style="position: fixed; left: 0px; bottom: 0px;" id="protest" >
+
+	   <img src="http://adjustments.agency/GRNASFCK/grnasfck/_600x360_protest.png" width="600 px">
+	</div>
+
+	<div class="cards" style="position: fixed; right: 30px; top: 30px;" id="cards" >
+
+	   <img src="http://adjustments.agency/GRNASFCK/grnasfck/_600x347_ashleys_reading.png" width="600 px">
+	</div>
+
+	<div class="book" style="position: fixed; left: 100px; top: 100px;" id="book" >
+
+	   <img src="http://adjustments.agency/GRNASFCK/grnasfck/_600x436_manifest_pg001.png" width="600 px">
+	</div>
+
+	<div class="instagram" style="position: fixed; right: 40px; top: 10px;" id="instagram" >
+
+	   <img src="http://adjustments.agency/GRNASFCK/grnasfck/_343x600_instagram01.png" width="343 px">
+	</div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+
+<script src="https://cdn.rawgit.com/boblemarin/Sprite3D.js/master/Sprite3D.js"></script>
+
+<!-- Add typetype.js manually -->
+<script src="http://iamdanfox.github.io/typetype/jquery.typetype.min.js"></script>
+
+<script>
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+	var colors = ['#007FFF', '#FF0000', '#33FFB2', '#FF00AD', '#00FF17', '#B3B42E', '#FF9437', '#606060', '#89B0C7', '#FF7C00', '#EEFF00', '#FF8A8A', '#9CF2FF'];
+
+	$('pre').html('<span style="color:' + colors[Math.floor((Math.random() * colors.length))] + '">(' + userip + ')</span>$ >BETA<span class="typed-cursor">|</span>');
+</script>
+<!-- <script src="js/hover.js"></script> -->
+
+<!-- bower:js -->
+<!-- bower installed scripts will go here... -->
+<!-- endinject -->
+<!-- inject:js -->
+<!-- app scripts will go here... -->
+<!-- endinject -->
+
+</html>

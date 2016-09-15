@@ -1,9 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   min-height: 100vh;
   font-family: "HK Grotesk", sans; }
+  body .restrict {
+    overflow: hidden; }
 
 header {
   width: 200px;
@@ -13,11 +14,14 @@ header {
   font-size: 16px;
   line-height: 18px;
   z-index: -2; }
-  header h1 {
+  header.page {
+    z-index: 1; }
+  header h1, header h1 a {
+    text-decoration: none;
+    color: black;
     font-size: 48px;
     margin-top: 4px;
     margin-bottom: 0;
-    margin-left: -5px;
     line-height: 28px;
     font-weight: 800; }
 
@@ -110,7 +114,7 @@ footer {
   .row.revelation h1 {
     padding-top: 50px; }
     .row.revelation h1 span {
-      font-size: 68px;
+      font-size: 58px;
       display: block;
       text-transform: uppercase;
       font-weight: 800;
@@ -155,6 +159,15 @@ span#chrstinebjerke .row.revelation {
     -webkit-text-fill-color: transparent; }
 span#grnasfck .row.revelation {
   box-sizing: border-box; }
+  span#grnasfck .row.revelation #video_background {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000; }
   span#grnasfck .row.revelation h1 span {
     background: -webkit-linear-gradient(209deg, #0083ff 7%, #1100ff 87%);
     background: linear-gradient(-119deg, #0083ff 7%, #1100ff 87%);
