@@ -27,10 +27,9 @@
 		</div>
 	</div> -->
 	<header>
-		<h1>HOMESHOW<span class="typed-cursor">|</span></h1>
+		<h1>HOMESHOW</h1>
 
-		<p>We’ve been thinking about <u>architecture</u>, and
-		our friends have been too.</p>
+		<pre style="font-size: 12px; letter-spacing: 2px;"></pre>
 
 		<p>We have some <u>fun stuff</u> you should check out.</p>
 
@@ -109,17 +108,32 @@
 	</div>
 		<!-- </div> -->
 	<!-- </div> -->
-
+	<footer>
+		<img src="http://www.adjustments.agency/aa_logo.gif" />
+	</footer>
 
 </body>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+</script>
+
 <script src="https://cdn.rawgit.com/boblemarin/Sprite3D.js/master/Sprite3D.js"></script>
 
 <!-- Add typetype.js manually -->
 <script src="http://iamdanfox.github.io/typetype/jquery.typetype.min.js"></script>
 
 <script src="js/main.min.js"></script>
+
+
 <!-- <script src="js/hover.js"></script> -->
 
 <!-- bower:js -->

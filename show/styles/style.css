@@ -8,17 +8,29 @@ body {
 header {
   width: 200px;
   position: fixed;
-  left: 0px;
-  top: 0px;
+  left: 30px;
+  top: 40px;
   font-size: 16px;
   line-height: 18px;
   z-index: -2; }
   header h1 {
     font-size: 48px;
     margin-top: 4px;
+    margin-bottom: 0;
     margin-left: -5px;
     line-height: 28px;
     font-weight: 800; }
+
+footer {
+  position: fixed;
+  left: 30px;
+  bottom: 40px;
+  font-size: 16px;
+  line-height: 18px;
+  z-index: -2; }
+  footer img {
+    width: 100px;
+    bottom: 0; }
 
 .typed-cursor {
   opacity: 1;
@@ -98,7 +110,7 @@ header {
   .row.revelation h1 {
     padding-top: 50px; }
     .row.revelation h1 span {
-      font-size: 48px;
+      font-size: 68px;
       display: block;
       text-transform: uppercase;
       font-weight: 800;
@@ -113,36 +125,48 @@ span .facetext {
   text-transform: uppercase;
   font-weight: 800;
   text-overflow: clip; }
-span#angelidakis .row.revelation h1 span, span#angelidakis .facetext {
-  background: -webkit-linear-gradient(228deg, #007FFF 10%, #FF0000 100%);
-  background: linear-gradient(-138deg, #007FFF 10%, #FF0000 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
-span#foam .row.revelation h1 span {
-  background: -webkit-linear-gradient(40deg, #33FFB2 0%, #FF00AD 100%);
-  background: linear-gradient(50deg, #33FFB2 0%, #FF00AD 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
-span#newterritories .row.revelation h1 span {
-  background: -webkit-linear-gradient(46deg, #00FF17 0%, #B3B42E 70%, #FF9437 100%);
-  background: linear-gradient(44deg, #00FF17 0%, #B3B42E 70%, #FF9437 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
-span#chrstinebjerke .row.revelation h1 span {
-  background: -webkit-linear-gradient(245deg, #606060 0%, #89B0C7 100%);
-  background: linear-gradient(-155deg, #606060 0%, #89B0C7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
-span#grnasfck .row.revelation h1 span {
-  background: -webkit-linear-gradient(209deg, #FF7C00 7%, #EEFF00 87%);
-  background: linear-gradient(-119deg, #FF7C00 7%, #EEFF00 87%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
-span#toma .row.revelation h1 span {
-  background: -webkit-linear-gradient(337deg, #FF8A8A 0%, #9CF2FF 100%);
-  background: linear-gradient(-247deg, #FF8A8A 0%, #9CF2FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
+span#angelidakis .row.revelation {
+  box-sizing: border-box; }
+  span#angelidakis .row.revelation h1 span, span#angelidakis .row.revelation#angelidakis .facetext {
+    background: -webkit-linear-gradient(228deg, #ff8000 10%, #00ffff 100%);
+    background: linear-gradient(-138deg, #ff8000 10%, #00ffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+span#foam .row.revelation {
+  box-sizing: border-box; }
+  span#foam .row.revelation h1 span {
+    background: -webkit-linear-gradient(40deg, #ff3380 0%, #00ff52 100%);
+    background: linear-gradient(50deg, #ff3380 0%, #00ff52 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+span#newterritories .row.revelation {
+  box-sizing: border-box; }
+  span#newterritories .row.revelation h1 span {
+    background: -webkit-linear-gradient(46deg, #ff00e8 0%, #2f2eb4 70%, #37a2ff 100%);
+    background: linear-gradient(44deg, #ff00e8 0%, #2f2eb4 70%, #37a2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+span#chrstinebjerke .row.revelation {
+  box-sizing: border-box; }
+  span#chrstinebjerke .row.revelation h1 span {
+    background: -webkit-linear-gradient(245deg, #606060 0%, #c7a089 100%);
+    background: linear-gradient(-155deg, #606060 0%, #c7a089 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+span#grnasfck .row.revelation {
+  box-sizing: border-box; }
+  span#grnasfck .row.revelation h1 span {
+    background: -webkit-linear-gradient(209deg, #0083ff 7%, #1100ff 87%);
+    background: linear-gradient(-119deg, #0083ff 7%, #1100ff 87%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+span#toma .row.revelation {
+  box-sizing: border-box; }
+  span#toma .row.revelation h1 span {
+    background: -webkit-linear-gradient(337deg, #8affff 0%, #ffa99c 100%);
+    background: linear-gradient(-247deg, #8affff 0%, #ffa99c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
 
 .shape > .top, .shape .bottom, .shape .left, .shape .right {
   background: #1a1a1a;

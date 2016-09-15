@@ -42,12 +42,12 @@ function MouseScroll (event) {
 
   if ('wheelDelta' in event) {
      rolled = event.wheelDelta;
-     $('.shape, .face').css('transition','0.1s ease');
+     $('.shape, .face').css('transition','');
   }
   else {  // Firefox
     // The measurement units of the detail and wheelDelta properties are different.
      rolled = -40 * event.detail;
-     $('.shape, .face').css('transition','0.1s ease');
+     $('.shape, .face').css('transition','');
   }
 
   // Scrollfuck Events
@@ -61,7 +61,7 @@ function MouseScroll (event) {
 
   $('span > .row.shape-container .col-sm-2 > .shape').each(function() {
     $(this).data('rotationReset', [this.rotationX(), this.rotationY(), this.rotationZ()]);
-    this.rotate(0,0,scale(rolled)).update();
+    this.rotate(randomFloat(-4.5,1.5)*scale(rolled),randomFloat(-1.5,1.5)*scale(rolled),randomFloat(-1.5,1.5)*scale(rolled)).update();
   });
 
   clearTimeout($.data(this, 'scrollTimer'));
@@ -69,7 +69,7 @@ function MouseScroll (event) {
     $('span > .row.shape-container .col-sm-2 > .shape').each(function() {
         this.rotation(70,0,45).update();
     });
-  }, 500));
+  }, 200));
 
   $('header p').each(function(index) {
     var rate = Math.abs(scale(rolled));
@@ -134,10 +134,15 @@ $(document).ready( function() {
   var offsets = shuffle([0,1,2,3,4,5,6,7,8,9]);
   var order = shuffle([0,1,2,3,4,5]);
   var exhibitor_ids = ['#angelidakis', '#foam', '#newterritories', '#chrstinebjerke', '#grnasfck', '#toma'];
-  var exhibitor_names = ['Andreas   Angeli dakis', 'F O A M', 'new- terri tories', 'Christine Bjerke', 'GRNA SFC K', 'T O  M   A'];
+  var exhibitor_names = ['A n d r e a s   Angeli dakis', 'F O  A M', 'n e w- terri tories', 'C h r i s t i n e Bjerke', 'GRNA SFC K', 'TO MA'];
 
   var viewport_height = $( window ).height();
       viewport_width = $( window ).width();
+
+  var axes=['x','y','z'];
+  var colors =['#007FFF','#FF0000','#33FFB2','#FF00AD','#00FF17','#B3B42E','#FF9437','#606060','#89B0C7','#FF7C00','#EEFF00','#FF8A8A','#9CF2FF'];
+
+  $('pre').html('<span style="color:'+colors[randomInt(0,colors.length)]+'">('+userip + ')</span>$ >BETA<span class="typed-cursor">|</span>');
 
     $('span > .row.shape-container .col-sm-2 > .shape').each(function() {
       $(this).data('rotationReset', [this.rotationX(), this.rotationY(), this.rotationZ()]);
@@ -153,7 +158,7 @@ $(document).ready( function() {
           height = $(this).height();
 
 
-      Sprite3D.stage( $( element )[0] ).perspective(perspective).appendChild( shapeCreator(index, width/2, height/2, 0, 23) );
+      Sprite3D.stage( $( element )[0] ).perspective(perspective).appendChild( shapeCreatorSpread(index, width/2, height/2, 0, 23) );
       var revelation = Sprite3D.stage($( this ).parents('.shape-container').siblings('.revelation')[0]).perspective('600').appendChild( shapeCreatorSpread(index, viewport_width/2, viewport_height/3, 0, 130, 0).addClass('gradient-'+(index+1)) );
       // revelation.appendChild( shapeCreatorSpread(index, viewport_width/2, viewport_height/3, 0, 130, 0).addClass('gradient-'+(index+1)) );
 
@@ -182,6 +187,19 @@ $(document).ready( function() {
   160);
 
   /*
+    SLOW ROTATE
+    */
+
+  var start = new Date().getTime();
+  setInterval(function() {
+      var now = new Date().getTime();
+      var secs = (now - start)/1000;
+      $('span > .row.shape-container .col-sm-2 > .shape').each(function() {
+        this.rotate(0, 0, 0.2*Math.cos(secs)).update();
+      });
+  }, 100);
+
+  /*
     SHAPE HOVER EFFECTS
     We set up the hover functions for each shape, which involves shape property manipulation
     and reset on mouseout.
@@ -196,8 +214,6 @@ $(document).ready( function() {
       var kids = $(this).children('.shape').children().children();
 
       var overlay = $( this ).parents('.shape-container').siblings('.revelation');
-
-      var axes=['x','y','z'];
 
       // Hide sibling shapes
       $('.shape-container .col-sm-2 > .shape').hide();
@@ -245,9 +261,9 @@ $(document).ready( function() {
         },
         10);
 
-        /*
-          WIP: facetext
-          */
+      /*
+        WIP: facetext
+        */
 
       // for (i=0; i<exhibitor_ids.length; i++) {
       //   var shapeChosen = $('span'+exhibitor_ids[i]+' .revelation .shape > .shape:eq('+randomInt(0,2)+')');
@@ -267,7 +283,13 @@ $(document).ready( function() {
        var nameArray = exhibitor_names[i].split(" ");
        $.each(nameArray, function (j, el) {
            j = j+1;
-           $h1.append("<span class='facetext' style='top:"+(j*50)+"px; left:"+(j+2)*(50)+"px;'>" + el + "</span>");
+           var rando = 10*Math.sin(randomFloat(0,10));
+           var addToOverlay = $('<span />', {
+              'style' : "top:"+(j*50)+"px; left:"+(j+2)*(50)+"px; transform: rotate("+rando+"deg);",
+              'html' :  el
+            }).appendTo($h1);
+          // test.move(10,10,23).update().appendTo($h1);
+          //  $h1.append("<span class='facetext' style='top:"+(j*50)+"px; left:"+(j+2)*(50)+"px;'>" + el + "</span>");
        });
      }
 
@@ -351,10 +373,10 @@ function shapeCreator(index, x, y, z, unit, depth) {
       // Add shape1
       var shape1 = Sprite3D.create(".shape first").position(x, y-10, z).rotation(70,0,45).update() ;
       // Shape 1 Faces
-      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape bottom" ).position( -unit, -unit, -unit).rotationY(180).update().move(-2*unit,-2*unit,-1*unit-depth).update() );
-      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right" ).position( 0, -unit, 0).rotationY(90).update().move(1*unit,1*unit,0.5*unit+depth).update() );
-      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front" ).position( -unit, 0, -2*unit).rotationX(90).update().move(2*unit,2*unit,1*unit+depth).update() );
-      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update().move(-1*unit,-1*unit,-0.5*unit+depth).update() );
+      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape bottom" ).position( -unit, -unit, -unit).rotationY(180).update());
+      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right" ).position( 0, -unit, 0).rotationY(90).update());
+      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front" ).position( -unit, 0, -2*unit).rotationX(90).update());
+      shape1.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update());
       return shape1
       break
 
@@ -362,9 +384,9 @@ function shapeCreator(index, x, y, z, unit, depth) {
       // Add shape2
       var shape2 = Sprite3D.create(".shape second").rotation(70,0,45).position(x+20, y+35, z).update() ;
       // Shape 2
-      shape2.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape top").position( -unit, -unit, unit).update().move(-2*unit,-2*unit,-1*unit-depth).update() )
-      shape2.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right").position( 0, -unit, 0).rotationY(90).update().move(1*unit,1*unit,0.5*unit+depth).update() )
-      shape2.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -3*unit, 0, 2*unit).rotationX(90).update().move(2*unit,2*unit,1*unit+depth).update() )
+      shape2.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape top").position( -unit, -unit, unit).update() )
+      shape2.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right").position( 0, -unit, 0).rotationY(90).update() )
+      shape2.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -3*unit, 0, 2*unit).rotationX(90).update() )
       return shape2
       break
 
@@ -373,9 +395,9 @@ function shapeCreator(index, x, y, z, unit, depth) {
       var shape3 = Sprite3D.create(".shape third").rotation(70,0,45).position(x, y+50, z).update() ;
 
       // shape3
-      shape3.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape top").position( -unit, -3*unit, 3*unit).update().move(-2*unit,-2*unit,-1*unit-depth).update() )
-      shape3.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape left").position( -2*unit, -unit, 2*unit).rotationY(-90).update().move(1*unit,1*unit,0.5*unit+depth).update() )
-      shape3.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update().move(2*unit,2*unit,1*unit+depth).update() )
+      shape3.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape top").position( -unit, -3*unit, 3*unit).update() )
+      shape3.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape left").position( -2*unit, -unit, 2*unit).rotationY(-90).update() )
+      shape3.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update() )
       return shape3
       break
 
@@ -384,10 +406,10 @@ function shapeCreator(index, x, y, z, unit, depth) {
       var shape4 = Sprite3D.create(".shape fourth").rotation(70,0,45).position(x, y+40, z).update() ;
 
       // shape4
-      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape bottom").position( -unit, -unit, -unit).rotationY(180).update().move(-2*unit,-2*unit,-1*unit-depth).update() );
-      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right").position( 0, -unit, 0).rotationY(90).update().move(1*unit,1*unit,0.5*unit+depth).update() );
-      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -unit, 0, 0).rotationX(90).update().move(2*unit,2*unit,1*unit+depth).update() );
-      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 2*unit).rotationX(-90).update().move(-1*unit,-1*unit,-0.5*unit+depth).update() );
+      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape bottom").position( -unit, -unit, -unit).rotationY(180).update());
+      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right").position( 0, -unit, 0).rotationY(90).update());
+      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -unit, 0, 0).rotationX(90).update());
+      shape4.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 2*unit).rotationX(-90).update());
       return shape4
       break
 
@@ -396,10 +418,10 @@ function shapeCreator(index, x, y, z, unit, depth) {
       var shape5 = Sprite3D.create(".shape fifth").rotation(70,0,45).position(x, y-10, z).update() ;
 
       // shape5
-      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape top").position( -unit, -unit, -unit).rotationY(180).update().move(-2*unit,-2*unit,-1*unit-depth).update() );
-      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right").position( 0, -unit, -2*unit).rotationY(90).update().move(1*unit,1*unit,0.5*unit+depth).update() );
-      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -unit, 0, 0).rotationX(90).update().move(2*unit,2*unit,1*unit+depth).update() );
-      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update().move(-1*unit,-1*unit,-0.5*unit+depth).update() );
+      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape top").position( -unit, -unit, -unit).rotationY(180).update());
+      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape right").position( 0, -unit, -2*unit).rotationY(90).update());
+      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -unit, 0, 0).rotationX(90).update());
+      shape5.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update());
       return shape5
       break
 
@@ -407,9 +429,9 @@ function shapeCreator(index, x, y, z, unit, depth) {
       // Add shape6
       var shape6 = Sprite3D.create(".shape sixth").rotation(70,0,45).position(x, y+40, z).update() ;
       // shape6
-      shape6.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape left").position( -2*unit, -unit, 0).rotationY(-90).update().move(-2*unit,-2*unit,-1*unit-depth).update() );
-      shape6.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -3*unit, 0, 2*unit).rotationX(90).update().move(1*unit,1*unit,0.5*unit+depth).update() );
-      shape6.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update().move(2*unit,2*unit,1*unit+depth).update() );
+      shape6.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape left").position( -2*unit, -unit, 0).rotationY(-90).update());
+      shape6.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape front").position( -3*unit, 0, 2*unit).rotationX(90).update());
+      shape6.appendChild( Sprite3D.box( 2*unit, 2*unit, depth, ".shape back").position( -unit, -2*unit, 0).rotationX(-90).update());
       return shape6
       break
   }
