@@ -96,14 +96,53 @@ header {
   z-index: -1;
   display: none; }
   .row.revelation h1 {
-    font-size: 72px;
-    background: -webkit-linear-gradient(#eee, #333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    width: 500px;
-    font-size: 108px;
-    margin: -20px 0 0 -20px;
-    display: block; }
+    padding-top: 50px; }
+    .row.revelation h1 span {
+      font-size: 48px;
+      display: block;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 18px;
+      z-index: 999;
+      display: inline-block;
+      position: absolute; }
+
+span .facetext {
+  font-size: 88px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 800;
+  text-overflow: clip; }
+span#angelidakis .row.revelation h1 span, span#angelidakis .facetext {
+  background: -webkit-linear-gradient(228deg, #007FFF 10%, #FF0000 100%);
+  background: linear-gradient(-138deg, #007FFF 10%, #FF0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+span#foam .row.revelation h1 span {
+  background: -webkit-linear-gradient(40deg, #33FFB2 0%, #FF00AD 100%);
+  background: linear-gradient(50deg, #33FFB2 0%, #FF00AD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+span#newterritories .row.revelation h1 span {
+  background: -webkit-linear-gradient(46deg, #00FF17 0%, #B3B42E 70%, #FF9437 100%);
+  background: linear-gradient(44deg, #00FF17 0%, #B3B42E 70%, #FF9437 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+span#chrstinebjerke .row.revelation h1 span {
+  background: -webkit-linear-gradient(245deg, #606060 0%, #89B0C7 100%);
+  background: linear-gradient(-155deg, #606060 0%, #89B0C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+span#grnasfck .row.revelation h1 span {
+  background: -webkit-linear-gradient(209deg, #FF7C00 7%, #EEFF00 87%);
+  background: linear-gradient(-119deg, #FF7C00 7%, #EEFF00 87%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+span#toma .row.revelation h1 span {
+  background: -webkit-linear-gradient(337deg, #FF8A8A 0%, #9CF2FF 100%);
+  background: linear-gradient(-247deg, #FF8A8A 0%, #9CF2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
 
 .shape > .top, .shape .bottom, .shape .left, .shape .right {
   background: #1a1a1a;
@@ -116,16 +155,16 @@ header {
   box-sizing: border-box; }
 .shape.gradient-1 > .shape > .top, .shape.gradient-1 > .shape .bottom, .shape.gradient-1 > .shape .left, .shape.gradient-1 > .shape .right {
   border: 1px solid transparent;
-  -o-border-image: linear-gradient(-138deg, #007FFF 0%, #FF0000 100%);
-     border-image: -webkit-linear-gradient(228deg, #007FFF 0%, #FF0000 100%);
-     border-image: linear-gradient(-138deg, #007FFF 0%, #FF0000 100%);
+  -o-border-image: linear-gradient(-138deg, #007FFF 10%, #FF0000 100%);
+     border-image: -webkit-linear-gradient(228deg, #007FFF 10%, #FF0000 100%);
+     border-image: linear-gradient(-138deg, #007FFF 10%, #FF0000 100%);
   border-image-slice: 1;
   background: #fff; }
 .shape.gradient-1 > .shape > .front, .shape.gradient-1 > .shape .back {
   border: 1px solid transparent;
-  -o-border-image: linear-gradient(-138deg, #007FFF 0%, #FF0000 100%);
-     border-image: -webkit-linear-gradient(228deg, #007FFF 0%, #FF0000 100%);
-     border-image: linear-gradient(-138deg, #007FFF 0%, #FF0000 100%);
+  -o-border-image: linear-gradient(-138deg, #007FFF 10%, #FF0000 100%);
+     border-image: -webkit-linear-gradient(228deg, #007FFF 10%, #FF0000 100%);
+     border-image: linear-gradient(-138deg, #007FFF 10%, #FF0000 100%);
   border-image-slice: 1;
   background: #fff; }
 .shape.gradient-2 > .shape > .top, .shape.gradient-2 > .shape .bottom, .shape.gradient-2 > .shape .left, .shape.gradient-2 > .shape .right {
