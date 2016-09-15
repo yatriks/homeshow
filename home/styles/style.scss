@@ -44,9 +44,16 @@ header {
   top: 40px;
   font-size: 16px;
   line-height: 18px;
-  z-index:-2;
+  z-index: 0;
   &.page {
     z-index: 1;
+  }
+  a {
+    color: gray;
+    z-index: 10;
+    &:hover {
+      transform: rotate(12deg);
+    }
   }
   h1, h1 a {
     // display: none;
@@ -68,7 +75,7 @@ footer {
   bottom: 40px;
   font-size: 16px;
   line-height: 18px;
-  z-index:-2;
+  z-index:0;
 
   img {
     width: 100px;
@@ -130,6 +137,7 @@ footer {
       // border: 1px solid lighten(red,33%);
       height: 100%;
       position: relative;
+      z-index: 3;
       &:hover {
         cursor: pointer;
       }
@@ -143,7 +151,7 @@ footer {
       top: 0;
       display: block;
       left: 0;
-      z-index: -1;
+      z-index: 1;
       display:none;
       h1 {
         padding-top: 50px;
@@ -162,6 +170,7 @@ footer {
   }
 
   span {
+    #video_background { position:fixed; bottom: 0px; right: 0px; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1000;}
     & .facetext {
       font-size: 88px;
       display: block;
@@ -210,7 +219,6 @@ footer {
       }
     }
     &#grnasfck .row.revelation {
-      #video_background { position:fixed; bottom: 0px; right: 0px; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1000;}
       box-sizing: border-box;
       h1 span {
         background: $inv_gradient5;
@@ -244,8 +252,8 @@ footer {
   }
   @for $i from 1 through 6 {
     &.gradient-#{$i} > .shape {
-      & > .top, .bottom, .left, .right { border: 1px solid transparent; border-image: nth($gradients, $i); border-image-slice: 1; background: #fff; }
-      & > .front, .back { border: 1px solid transparent; border-image: nth($gradients, $i); border-image-slice: 1;background: #fff; }
+      & > .top, .bottom, .left, .right { border: 1px solid transparent; border-image: nth($gradients, $i); border-image-slice: 1; background: transparent; }
+      & > .front, .back { border: 1px solid transparent; border-image: nth($gradients, $i); border-image-slice: 1;background: transparent; }
     }
   }
   &.gradient {

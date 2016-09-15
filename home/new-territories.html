@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>AA</title>
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
+	<link rel="stylesheet" href="styles/style.min.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!-- bower:css -->
+	<!-- bower installed css files  will go here... -->
+	<!-- endinject -->
+	<!-- inject:css -->
+	<!-- built css files will go here... -->
+	<!-- endinject -->
+	<style>
+		#video_background {
+			position: fixed;
+			bottom: 0px;
+			right: 0px;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -1000;
+		}
+
+		body {
+			font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+			background-size: cover;
+			height: 100vh;
+			cursor: crosshair;
+		}
+
+		#myCanvas {
+			position: fixed;
+			bottom: 0px;
+			right: 0px;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -1000;
+			opacity: .6;
+		}
+
+		h1 {
+			text-align: center;
+			font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+			color: #06D85F;
+			margin: 80px 0;
+		}
+
+		.button {
+			font-size: 2em;
+			padding: 10px;
+			color: #fff;
+			border: 2px solid #5B5B5B;
+			border-radius: 20px/50px;
+			text-decoration: none;
+			cursor: pointer;
+			transition: all 0.3s ease-out;
+			position: fixed;
+			right: 30px;
+			top: 30px;
+		}
+
+		.button:hover {
+			background: #5B5B5B;
+		}
+
+		.overlay {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(0, 0, 0, .2);
+			transition: opacity 500ms;
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		.overlay:target {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		.popup {
+			margin: 70px auto;
+			padding: 40px;
+			background: #fff;
+			opacity: 0.3;
+			border-radius: 5px;
+			width: 45%;
+			position: relative;
+			transition: all 5s ease-in-out;
+		}
+
+		.popup h2 {
+			margin-top: 0;
+			color: #333;
+			font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+		}
+
+		.popup .close {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			transition: all 200ms;
+			font-size: 30px;
+			font-weight: bold;
+			text-decoration: none;
+			color: #333;
+		}
+
+		.popup .close:hover {
+			color: #5B5B5B;
+		}
+
+		.popup .content {
+			height: 650px;
+			overflow: scroll;
+		}
+
+		@media screen and (max-width: 700px) {
+			.box {
+				width: 70%;
+			}
+			.popup {
+				width: 70%;
+			}
+		}
+	</style>
+</head>
+
+<body id="body" onload="Init ();">
+
+	<header class="page">
+		<h1><a href="/">HOMESHOW</a></h1>
+
+		<pre style="font-size: 12px; letter-spacing: 2px;"></pre>
+
+		
+
+		<p><a href="mailto: info@adjustments.agency">Get in touch?</a></p>
+	</header>
+
+	<video id="video_background" preload="auto" autoplay loop>
+<source src="http://adjustments.agency/new-territories/extimity%20sub%20INSIDE0+sound.mp4"type="video/mp4"> </video>
+	<div class="box">
+		<a class="button" href="#popup1">+</a>
+	</div>
+	<div id="popup1" class="overlay">
+		<div class="popup">
+			<h2>Ex-Timite</h2>
+			<a class="close" href="#">&times;</a>
+			<div class="content">
+				New-Territories /M4/2016 <br> <br> …a research on NEOTENY / rOB-fAB-sTASE-insTASE-eXsTASE-inTIMITY-…………..ex-TIMITY <br> Movie: 11:17 / Computation + Robotic Props <br>
+				<br> ‘’Ex-Timity’’ consists in a ‘model-prototype in process’ along with a short film, both derived from the tale ‘Councillor Krespel’ by E.T.A. Hoffmann. <br> <br> … the piece is derived from the first part of the novel in which the Councillor Krespel
+				encloses his own daughter, Antonia, and prevents her from singing, from her inclination towards a morbid bliss … in the literal sense. <br> <br> The short film originating from this makes visible a suspended moment, in the meanders of her psyche,
+				where she ponders whether or not to live her pleasure, mixing life and death drives, physiological and pathological pathologies. The monologue at the end of the film reintroduces the debate between Charcot and Freud on the origins of the state of
+				torpor, the loss of consciousness, inanimate body, state of exaltation, passionate state, suspension of the will (Sabina Spielrein, Destruction as the Cause of Coming into Being). We can see in Antonia’s behaviour the premises of this debate on hysteria,
+				considered by Charcot as a neurocerebral disease, a pathological trouble, genital neurosis which would enable the disqualification of the feminine gender and its humours, associating it with convulsionary troubles, of pathological origins (in opposition
+				to medieval beliefs of bodies being ‘possessed by the devil’). <br> <br> Freud will shatter the organismic theories of Charcot, scoring hysterical ecstasy as a psychic pathology, whose care requires an intelligible device bound to language and not
+				a mise en abime, a spectacle with the doctor as the master of ceremony. <br> <br> Antonia in the research ‘’Ex-Timity’’ is in this moment of interrogation, a century before the debate between Charcot and Freud. She identifies the two hypotheses as
+				an external authority upon her body, both attempting to format her behaviour. Following Charcot’s hypothesis of a physiological disease, she can allow herself to be in representation, exhibitionist … science gives her that right. In Freud’s view,
+				she is a zone of passage to the unconscious which can only unfold via language, speech, analysis, and its discursive corollary. <br> <br> Thus she hesitates to adopt one format or the other, not neglecting that being ‘possessed by the devil’ can come
+				as a plausible escape (there are no more public burning at the stake nowadays). <br> <br> She will, as the film progresses, internalize her libido and its corollary linked to the state of ecstasy, in organismic and psychic dimensions in order to metabolize
+				her addiction. She discovers a sort of clearing, in the meaning of Heidegger, where she can negotiate her monstrosity, a place of en-stasis, she will overcome her libido, which she can now externalize with pain and disgust for herself. The body is
+				in space, it is the space and it inhabits it (Moebius surface). She reaches sexual maturity before going out of this uterine incubator, and invalidates a reference to the concept of Neoteny dear to Lacan: man and woman, in a body point of view, are
+				premature foetal primate having reached sexual maturity while remaining larval, basically unfinished, constitutively deficient … <br> <br> This way Antonia escapes her morbid destiny and Hoffmann’s tale cannot endlessness… <br> <br> Soliloquies <br>				<br> …no … not yet … … where you from … … … i’m not ready ............ porn-vulnerable premature … sexual immature ... you see ... can’t you see … i’m still in limbo ...... ... un-stripped of my molt ... ... lecherous voyeur … unveiled in my extimacy
+				.......a larva ..... libidinal …. …. a primate fetus........... wait …. Come back later ...... really not in place ... ... not my place ... i exit-inUterus ... and i'm hungry ... one doesn’t come here innocently ...... ... miss-than-abim ... ah ...
+				but i'm not really there either ...... ailing … amiss ...... i’m a faker … breathless ... ... carnal embodiment ... obscene incarnation … naive native profanity ... i'm sick … deranged ... ... you don’t wanna mix everything up…Yes … i will stay here
+				… instead … or rather … there … but … in this hole…Mmmmm ... i'm still a larva ...... diaphanous … almost transparent ............ no hairs yet ...... the forehead … bulging … … the eyes ... the mouth … and the lips … the teeth ! ............ i’m
+				not formed yet ... i embryonic ...... leave me alone ...... i got work to do ...i must … get rid of this skin … scar less ..... ... must make the lips fatter … i don’t feel much yet anyway ... ... must bring the eyes closer … lower the eyelids … must
+				stand up … must vo-ci-fe-rate … …. but no … it … really … is fine for me ..... yes … i will stay there for another while ... ... ... slashing the entrails ... ... desexualizing ...... on the outside … no i won’t say anything ......... have no words
+				of my own ...... no voice ... i’m veiled … un-unsealed ... everything here in stasis ... ...... enstasy ...... inside ... folded … undeveloped ... enfolded … curled up concealed twisted torn ... in reverse embrace ... fondling faces ... what do you
+				want you? ... that i close my mouth when i eat like this ... that i spread my lips ... like that ... i tell you what ... I have nothing to tell you ......... let the devil do its dance ... ... the ecstasy of expulsion ... I want more ... the dirty
+				insularity of my flesh ... You can go to hell ... ... I don’t care ... I adopt combat pose ...... whole ...... reconstituted ... …. auto-imago terminal … equivocal carnation ...... underlying schizoid ... ... hideous idol … I complete the strip ...
+				... and tomorrow … a monster will be out ... ... you can go to hell ...... in nonsense innocence … I belong to me … to me <br> <br> The larva moves in her silky element, white, indifferent to the world and its mechanisms of which she is prettily unaware.
+				She wanders through dead-ends, encountering only herself, everytime feeling distressed about it. She would not pass the imago stage, she remains fragmented, disintegrated, scattered. By dint of renouncing ecstasy - which would lead to assume her body
+				as a whole, joint to her mind - she suffocates in a form of enstasy, of which we do not see how she will come out. She displays a muffled enjoyment, unrestrained but painless, without joy nor outbursts nor consequences. Her hysteria is cold, her nakedness
+				premeditated, apathetic although odorous. <br> <br> Understanding if she constrained herself or if centuries of external authority upon her body and its manifestations are responsible for her current state of stagnation seems irrelevant today. The
+				question is whether and how she is going to unfold. <br> <br> It is symptomatic that her biotope is that of culs-de-sac, where she goes in circles without anyone's knowledge. She grows, she pushes for a resolution, but with no scream, with no excess,
+				without tempting the void, nothing will come out. To follow her destiny of libidinal larva, to give up her previous form and embrace an instinctual beastly innocence, she will have to… <br> <br> <br> ex_timity <br> PRODUCER / CONCEPTOR / NEW-TERRITORIES
+				/ M4 / RMIT As part of the series “mythomaniaS” / Francois Roche _ Camille Lacadee, with Stephan Henrich, Daniela Mitterberger, Vong Wongkillalerd, Benjamin Ennemoser, Joey Jacobson. With the support of Graham Foundation, CNC France
+
+
+			</div>
+		</div>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		<script>
+			// Create an array to store our particles
+			var particles = [];
+
+			// The amount of particles to render
+			var particleCount = 30;
+
+			// The maximum velocity in each direction
+			var maxVelocity = 2;
+
+			// The target frames per second (how often do we want to update / redraw the scene)
+			var targetFPS = 33;
+
+			// Set the dimensions of the canvas as variables so they can be used.
+			var canvasWidth = 400;
+			var canvasHeight = 400;
+
+			// Create an image object (only need one instance)
+			var imageObj = new Image();
+
+			// Once the image has been downloaded then set the image on all of the particles
+			imageObj.onload = function() {
+				particles.forEach(function(particle) {
+					particle.setImage(imageObj);
+				});
+			};
+
+			// Once the callback is arranged then set the source of the image
+			imageObj.src = "http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png";
+
+			// A function to create a particle object.
+			function Particle(context) {
+
+				// Set the initial x and y positions
+				this.x = 0;
+				this.y = 0;
+
+				// Set the initial velocity
+				this.xVelocity = 0;
+				this.yVelocity = 0;
+
+				// Set the radius
+				this.radius = 5;
+
+				// Store the context which will be used to draw the particle
+				this.context = context;
+
+				// The function to draw the particle on the canvas.
+				this.draw = function() {
+
+					// If an image is set draw it
+					if (this.image) {
+						this.context.drawImage(this.image, this.x - 128, this.y - 128);
+						// If the image is being rendered do not draw the circle so break out of the draw function
+						return;
+					}
+					// Draw the circle as before, with the addition of using the position and the radius from this object.
+					this.context.beginPath();
+					this.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+					this.context.fillStyle = "rgba(0, 255, 255, 1)";
+					this.context.fill();
+					this.context.closePath();
+				};
+
+				// Update the particle.
+				this.update = function() {
+					// Update the position of the particle with the addition of the velocity.
+					this.x += this.xVelocity;
+					this.y += this.yVelocity;
+
+					// Check if has crossed the right edge
+					if (this.x >= canvasWidth) {
+						this.xVelocity = -this.xVelocity;
+						this.x = canvasWidth;
+					}
+					// Check if has crossed the left edge
+					else if (this.x <= 0) {
+						this.xVelocity = -this.xVelocity;
+						this.x = 0;
+					}
+
+					// Check if has crossed the bottom edge
+					if (this.y >= canvasHeight) {
+						this.yVelocity = -this.yVelocity;
+						this.y = canvasHeight;
+					}
+
+					// Check if has crossed the top edge
+					else if (this.y <= 0) {
+						this.yVelocity = -this.yVelocity;
+						this.y = 0;
+					}
+				};
+
+				// A function to set the position of the particle.
+				this.setPosition = function(x, y) {
+					this.x = x;
+					this.y = y;
+				};
+
+				// Function to set the velocity.
+				this.setVelocity = function(x, y) {
+					this.xVelocity = x;
+					this.yVelocity = y;
+				};
+
+				this.setImage = function(image) {
+					this.image = image;
+				}
+			}
+
+			// A function to generate a random number between 2 values
+			function generateRandom(min, max) {
+				return Math.random() * (max - min) + min;
+			}
+
+			// The canvas context if it is defined.
+			var context;
+
+			// Initialise the scene and set the context if possible
+			function init() {
+				var canvas = document.getElementById('myCanvas');
+				if (canvas.getContext) {
+
+					// Set the context variable so it can be re-used
+					context = canvas.getContext('2d');
+
+					// Create the particles and set their initial positions and velocities
+					for (var i = 0; i < particleCount; ++i) {
+						var particle = new Particle(context);
+
+						// Set the position to be inside the canvas bounds
+						particle.setPosition(generateRandom(0, canvasWidth), generateRandom(0, canvasHeight));
+
+						// Set the initial velocity to be either random and either negative or positive
+						particle.setVelocity(generateRandom(-maxVelocity, maxVelocity), generateRandom(-maxVelocity, maxVelocity));
+						particles.push(particle);
+					}
+				} else {
+					alert("Please use a modern browser");
+				}
+			}
+
+			// The function to draw the scene
+			function draw() {
+				// Clear the drawing surface and fill it with a black background
+				context.fillStyle = "rgba(0, 0, 0, .5)";
+				context.fillRect(0, 0, 400, 400);
+
+				// Go through all of the particles and draw them.
+				particles.forEach(function(particle) {
+					particle.draw();
+				});
+			}
+
+			// Update the scene
+			function update() {
+				particles.forEach(function(particle) {
+					particle.update();
+				});
+			}
+
+			// Initialize the scene
+			init();
+
+			// If the context is set then we can draw the scene (if not then the browser does not support canvas)
+			if (context) {
+				setInterval(function() {
+					// Update the scene befoe drawing
+					update();
+
+					// Draw the scene
+					draw();
+				}, 1000 / targetFPS);
+			}
+		</script>
+
+		<!-- </div> -->
+
+		<footer>
+			<img src="http://www.adjustments.agency/aa_logo.gif" />
+		</footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+
+<script src="https://cdn.rawgit.com/boblemarin/Sprite3D.js/master/Sprite3D.js"></script>
+
+<!-- Add typetype.js manually -->
+<script src="http://iamdanfox.github.io/typetype/jquery.typetype.min.js"></script>
+
+<script>
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+	var colors = ['#007FFF', '#FF0000', '#33FFB2', '#FF00AD', '#00FF17', '#B3B42E', '#FF9437', '#606060', '#89B0C7', '#FF7C00', '#EEFF00', '#FF8A8A', '#9CF2FF'];
+
+	$('pre').html('<span style="color:' + colors[Math.floor((Math.random() * colors.length))] + '">(' + userip + ')</span>$ >BETA<span class="typed-cursor">|</span>');
+</script>
+<!-- <script src="js/hover.js"></script> -->
+
+<!-- bower:js -->
+<!-- bower installed scripts will go here... -->
+<!-- endinject -->
+<!-- inject:js -->
+<!-- app scripts will go here... -->
+<!-- endinject -->
+
+</html>

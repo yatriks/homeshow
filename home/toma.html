@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>AA</title>
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
+	<link rel="stylesheet" href="styles/style.min.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!-- bower:css -->
+	<!-- bower installed css files  will go here... -->
+	<!-- endinject -->
+	<!-- inject:css -->
+	<!-- built css files will go here... -->
+	<!-- endinject -->
+	<style>
+		.screen {
+			position: relative;
+			margin-top: 20px;
+			left: 200px;
+			background: #ffffff;
+			transform: translateZ(0) perspective(1400px) rotateX(70deg) rotateZ(60deg);
+			box-shadow: 20px 20px 30px #444;
+			animation: anim 1s infinite ease-in-out alternate;
+		}
+
+		.screen:hover {
+			left: 0px;
+			background: #ffffff;
+			box-shadow: 1px 2px 5px #444;
+			animation: none;
+			transform: translateZ(0) perspective(1400px) rotateX(0deg) rotateZ(0deg);
+		}
+
+		img,
+		.screen {
+			width: 288px;
+			height: 512px;
+		}
+
+		img,
+		.screen:hover {
+			width: 100%;
+			height: 100%;
+		}
+
+		.screenttwo {
+			position: relative;
+			margin-top: -500px;
+			left: 900px;
+			background: #ffffff;
+			transform: translateZ(0) perspective(1400px) rotateX(70deg) rotateZ(60deg);
+			box-shadow: 20px 20px 30px #444;
+			animation: anim 1s infinite ease-in-out alternate;
+		}
+
+		.screenttwo:hover {
+			left: 0px;
+			background: #ffffff;
+			box-shadow: 1px 2px 5px #444;
+			animation: none;
+			transform: translateZ(0) perspective(1400px) rotateX(0deg) rotateZ(0deg);
+		}
+
+		img,
+		.screenttwo {
+			width: 288px;
+			height: 512px;
+		}
+
+		img,
+		.screenttwo:hover {
+			width: 100%;
+			height: 100%;
+		}
+
+		@keyframes anim {
+			100% {
+				transform: translateZ(0) translateY(0px) perspective(1250px) rotateX(70deg) rotateZ(60deg);
+				box-shadow: 60px 60px 50px #999;
+			}
+		}
+
+		@keyframes anim {
+			100% {
+				transform: translateZ(0) translateY(0px) perspective(1250px) rotateX(70deg) rotateZ(60deg);
+				box-shadow: 60px 60px 50px #999;
+			}
+		}
+	</style>
+</head>
+
+<body id="body" onload="Init ();">
+
+	<header class="page">
+		<h1><a href="/">HOMESHOW</a></h1>
+
+		<pre style="font-size: 12px; letter-spacing: 2px;"></pre>
+
+
+
+		<p><a href="mailto: info@adjustments.agency">Get in touch?</a></p>
+	</header>
+
+	<body>
+		<section class="screen">
+			<img src="http://adjustments.agency/TOMA/Ocupacion-Imprenta-Dia-1.jpg" alt="" />
+		</section>
+		<section class="screenttwo">
+			<img src="http://adjustments.agency/TOMA/Ocupacion-Imprenta-Dia-2.jpg" alt="" />
+		</section>
+
+
+		<!-- </div> -->
+
+		<footer>
+			<img src="http://www.adjustments.agency/aa_logo.gif" />
+		</footer>
+
+	</body>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
+
+	<script src="https://cdn.rawgit.com/boblemarin/Sprite3D.js/master/Sprite3D.js"></script>
+
+	<!-- Add typetype.js manually -->
+	<script src="http://iamdanfox.github.io/typetype/jquery.typetype.min.js"></script>
+
+	<script>
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+		var colors = ['#007FFF', '#FF0000', '#33FFB2', '#FF00AD', '#00FF17', '#B3B42E', '#FF9437', '#606060', '#89B0C7', '#FF7C00', '#EEFF00', '#FF8A8A', '#9CF2FF'];
+
+		$('pre').html('<span style="color:' + colors[Math.floor((Math.random() * colors.length))] + '">(' + userip + ')</span>$ >BETA<span class="typed-cursor">|</span>');
+	</script>
+	<!-- <script src="js/hover.js"></script> -->
+
+	<!-- bower:js -->
+	<!-- bower installed scripts will go here... -->
+	<!-- endinject -->
+	<!-- inject:js -->
+	<!-- app scripts will go here... -->
+	<!-- endinject -->
+
+</html>

@@ -242,16 +242,16 @@ $(document).ready( function() {
           overlay[0].perspective(perspectiveNormalize(5, diffsecs));
 
           var rotators = function(axis) {
-            var t = diff/300;
+            var t = diff/1000;
             return {
-              'x' : randomInt(0.008, 0.06)*t+0.1,
+              'x' : randomFloat(0.008, 0.06)*t+0.1,
               'y' : 0.009*(Math.sin(t)*2)+0.1,
               'z' : 0.05*(Math.cos(t))+0.1
             }[axis];
           }
           $(revealed_shape).children('.shape').each( function (index) {
 
-              this.rotate(rotators('x'), -1*rotators('y'), rotators('z')).update();
+              // this.rotate(rotators('x'), -1*rotators('y'), rotators('z')).update();
 
               var randomAxis = axes[randomInt(0,2)];
               Math.round(Math.random()) * this.rotate(rotators(randomAxis), rotators(randomAxis), rotators(randomAxis)).update();
